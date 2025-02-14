@@ -39,6 +39,23 @@
                         <p>I am a dedicated Cybersecurity student at Grambling State University with a strong passion for securing web data and integrating software engineering principles into cybersecurity solutions. With proficiency in Python and JavaScript, I actively work on projects that enhance my technical expertise. My goal is to leverage my skills to create innovative cybersecurity solutions while mentoring and supporting underprivileged individuals in tech.</p>
                     </div>
 
+                    <div class="section" id="skills">
+                        <h3>Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">FrontEnd/CSS/React</span>
+                            <span class="skill-tag">Backend/Python/JS</span>
+                            <span class="skill-tag">Node.js/Express.js</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Netlify</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Vulnerability Assessment</span>
+                            <span class="skill-tag">Port Scanning</span>
+                            <span class="skill-tag">Network Security</span>
+                        </div>
+                    </div>
+
                     <div class="section" id="experience">
                         <h3>Experience</h3>
                         <div class="experience-item">
@@ -59,23 +76,6 @@
                                 <li>Coordinated and facilitated online learning sessions while contributing to backend API development, ensuring efficient server-side functionality and integration.</li>
                                 <li>Worked collaboratively with a cross-functional team of 5 developers to build and optimize backend APIs, ensuring seamless integration with frontend components.</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="section" id="skills">
-                        <h3>Skills</h3>
-                        <div class="skills-list">
-                            <span class="skill-tag">FrontEnd/CSS/React</span>
-                            <span class="skill-tag">Backend/Python/JS</span>
-                            <span class="skill-tag">Node.js/Express.js</span>
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">Netlify</span>
-                            <span class="skill-tag">Web Development</span>
-                            <span class="skill-tag">UI/UX Design</span>
-                            <span class="skill-tag">Cybersecurity</span>
-                            <span class="skill-tag">Vulnerability Assessment</span>
-                            <span class="skill-tag">Port Scanning</span>
-                            <span class="skill-tag">Network Security</span>
                         </div>
                     </div>
 
@@ -125,6 +125,7 @@
             </div>
         </div>
         <div class="projects-section">
+            <div class="loading-text" id="loadingText">Loading Projects...</div>
             <div class="grid-container">
                 <div class="item purple">
                     <div class="project-content">
@@ -225,7 +226,7 @@
                                 <i class="fas fa-play-circle"></i>
                                 View Demo
                             </a>
-                            <a href="#" target="_blank" class="project-button">
+                            <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner.git" target="_blank" class="project-button">
                                 <i class="fab fa-github"></i>
                                 View Code
                             </a>
@@ -387,6 +388,30 @@
                 }
             }
         });
+
+        // JavaScript to handle loading text and project animations
+        window.onload = function() {
+            const loadingText = document.getElementById('loadingText');
+            const gridContainer = document.querySelector('.grid-container');
+            
+            // Initially hide all project items
+            gridContainer.style.opacity = '0';
+            
+            setTimeout(() => {
+                loadingText.style.opacity = '0';
+                setTimeout(() => {
+                    loadingText.style.display = 'none';
+                    gridContainer.style.opacity = '1';
+                    const items = document.querySelectorAll('.grid-container .item');
+                    
+                    items.forEach((item, index) => {
+                        item.style.animation = 'none';
+                        void item.offsetHeight;
+                        item.style.animation = `fadeIn 0.8s ease-out ${0.5 + index * 0.2}s forwards`;
+                    });
+                }, 1000);
+            }, 2000);
+        };
     </script>
 </body>
 </html>
