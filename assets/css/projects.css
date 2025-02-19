@@ -939,9 +939,7 @@ body {
 }
 
 .item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    transform: scale(1.05);
     z-index: 1;
     transition: all 0.3s ease;
 }
@@ -1542,3 +1540,47 @@ body {
 .grid-container .item:nth-child(7) { --i: 2.2; }
 .grid-container .item:nth-child(8) { --i: 2.4; }
 .grid-container .item:nth-child(9) { --i: 2.6; }
+
+.project-box {
+    /* ... existing styles ... */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative; /* Ensures proper z-index stacking */
+}
+
+.project-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Keeps scaled element above others during hover */
+}
+
+/* Remove the generic .project-box styles and replace with color-specific shadows */
+
+.purple:hover {
+    box-shadow: 0 8px 15px rgba(136, 68, 170, 0.8);
+}
+
+.green-tall:hover,
+.small-green:hover,
+.wide-green:hover {
+    box-shadow: 0 8px 15px rgba(68, 170, 68, 0.8);
+}
+
+.small-blue:hover,
+.split:hover,
+.top-blue:hover {
+    box-shadow: 0 8px 15px rgba(102, 170, 255, 0.8);
+}
+
+.red:hover,
+.small-red:hover,
+.bottom-purple:hover {
+    box-shadow: 0 8px 15px rgba(255, 68, 68, 0.8);
+}
+
+/* Keep the existing transform and transition */        
+.item:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    transition: all 0.2s ease;
+}
