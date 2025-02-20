@@ -1694,20 +1694,9 @@ body {
         cursor: pointer;
     }
 
-    .project-card .project-content {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .project-card.show-content .project-content {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Add a subtle indicator that cards are tappable */
+    /* Remove the tap to view text since we're redirecting now */
     .project-card::after {
-        content: "Tap to view";
+        content: "Tap to open";
         position: absolute;
         bottom: 10px;
         right: 10px;
@@ -1716,8 +1705,10 @@ body {
         pointer-events: none;
     }
 
-    .project-card.show-content::after {
-        content: "Tap to close";
+    /* Keep project content visible on mobile */
+    .project-card .project-content {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
