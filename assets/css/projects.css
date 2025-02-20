@@ -2,10 +2,10 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
     background-color: #f0f0f0;
-    overflow: hidden;
+    overflow-y: auto;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -13,8 +13,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
 .profile-section {
@@ -1584,11 +1584,20 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .main-container {
-        grid-template-columns: 1fr;
-        height: auto;
-        overflow: visible;
+        display: flex;
+        flex-direction: column;
     }
-    
+
+    /* Move purple bottle section to top */
+    .item-bottle-purple {
+        order: -1;
+    }
+
+    /* Move wide green section to bottom */
+    .item-wide-green {
+        order: 1;
+    }
+
     .profile-section {
         padding: 1rem;
         height: auto;
@@ -1674,6 +1683,10 @@ body {
     .section {
         padding: 1rem;
         margin-bottom: 1rem;
+    }
+
+    body {
+        overflow-y: auto !important;
     }
 }
 
@@ -1815,7 +1828,7 @@ body {
 
 .toggle-sections-button {
     position: fixed;
-    top: 1rem;
+    top: calc(1rem + 50px); /* Moved down 50px from original position */
     right: 1rem;
     width: 50px;
     height: 50px;
@@ -1843,4 +1856,99 @@ body {
 
 .toggle-sections-button i {
     font-size: 1.2rem;
+}
+
+/* Remove any button text overlays */
+button::before,
+button::after {
+    content: none !important;
+}
+
+/* Ensure button text is clean */
+button {
+    font-size: inherit;
+    text-transform: none;
+}
+
+/* Specifically target any custom attributes that might add text */
+[data-content],
+[data-text] {
+    display: none;
+}
+
+/* Target specific button classes that might contain the inscription */
+.form-submit-button::before,
+.submit-button::before,
+.contact-form button::before,
+#sendButton::before,
+.emailjs-button::before,
+button[type="submit"]::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Remove any potential overlays */
+.form-submit-button,
+.submit-button,
+.contact-form button,
+#sendButton,
+.emailjs-button,
+button[type="submit"] {
+    position: relative;
+}
+
+.form-submit-button *,
+.submit-button *,
+.contact-form button *,
+#sendButton *,
+.emailjs-button *,
+button[type="submit"] * {
+    display: none !important;
+}
+
+/* Ensure no text decoration or additional content */
+button {
+    text-decoration: none !important;
+    position: relative;
+}
+
+button::before,
+button::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Reset button content display */
+.form-submit-button,
+.submit-button,
+.contact-form button,
+#sendButton,
+.emailjs-button,
+button[type="submit"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove unwanted overlays but keep intended content */
+.form-submit-button::before,
+.submit-button::before,
+.contact-form button::before,
+#sendButton::before,
+.emailjs-button::before,
+button[type="submit"]::before {
+    content: none !important;
+}
+
+/* Style the button text */
+button[type="submit"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+/* Allow button content to be visible */
+button[type="submit"]::after {
+    content: "Send Message";
+    display: inline-block !important;
 }
