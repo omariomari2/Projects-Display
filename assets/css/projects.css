@@ -7,6 +7,7 @@ body {
     background-color: #f0f0f0;
     overflow-y: auto;
     font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .main-container {
@@ -1710,6 +1711,28 @@ body {
         opacity: 1;
         visibility: visible;
     }
+
+    .project-content {
+        cursor: pointer;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .project-content:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+    }
+
+    /* Prevent text selection on mobile taps */
+    .project-content * {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Hide project buttons on mobile since we're using the entire card as a clickable element */
+    .project-buttons {
+        display: none;
+    }
 }
 
 /* Add smaller screen adjustments */
@@ -1775,48 +1798,30 @@ body {
 }
 
 /* Dark mode styles */
-.dark-mode {
+body.dark-mode {
     background-color: #1a1a1a;
-    color: #fff;
+    color: #ffffff;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.dark-mode .profile-section {
+.dark-mode .profile-section,
+.dark-mode .projects-section,
+.dark-mode .project-content,
+.dark-mode .profile-card {
     background-color: #2d2d2d;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .profile-info h1 {
-    color: #fff;
-}
-
-.dark-mode .profile-info .title {
-    color: #ccc;
-}
-
-.dark-mode .section h3 {
-    color: #fff;
-}
-
-.dark-mode .section p {
-    color: #ddd;
-}
-
-.dark-mode .project-content {
-    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .dark-mode .project-skill-tag {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background-color: #3d3d3d;
+    color: #ffffff;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.dark-mode .project-button {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-.dark-mode .project-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.dark-mode a {
+    color: #7cb7ff;
+    transition: color 0.5s ease;
 }
 
 .section-content {

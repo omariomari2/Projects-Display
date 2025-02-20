@@ -370,6 +370,29 @@
             }
         });
 
+        // Handle project card clicks on mobile
+        function handleProjectClick(event) {
+            // Only handle clicks on mobile devices
+            if (window.innerWidth > 768) return;
+            
+            const projectContent = event.currentTarget;
+            const demoLink = projectContent.querySelector('a[href*="demo"], a[href*="site"]:not([href*="github"])');
+            const liveLink = projectContent.querySelector('a[href*="site"], a[href*="io"]');
+            const codeLink = projectContent.querySelector('a[href*="github"]');
+            
+            // Priority: demo > live site > code
+            const targetLink = demoLink || liveLink || codeLink;
+            
+            if (targetLink) {
+                targetLink.click();
+            }
+        }
+
+        // Add click handlers to all project cards
+        document.querySelectorAll('.project-content').forEach(card => {
+            card.addEventListener('click', handleProjectClick);
+        });
+
         // Initialize EmailJS
         (function() {
             emailjs.init("ySHgOCav0GR7JaPsb");
