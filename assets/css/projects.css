@@ -1791,14 +1791,47 @@ body {
 }
 
 .toggle-button {
-    background-color: #007BFF;
+    background-color: #4CAF50; /* Match your theme color */
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
     margin-bottom: 1rem;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button:hover {
+    background-color: #45a049; /* Slightly darker shade for hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 .toggle-button:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5); /* Focus ring */
+}
+
+.toggle-sections-button {
+    background-color: #4CAF50; /* Match your theme color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-sections-button:hover {
+    background-color: #45a049; /* Slightly darker shade for hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.toggle-sections-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5); /* Focus ring */
 }

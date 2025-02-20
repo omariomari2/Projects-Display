@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleButtons = document.querySelectorAll('.toggle-button');
+    const toggleButton = document.getElementById('toggleSectionsButton');
+    const sections = document.querySelectorAll('.section-content');
 
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const sectionContent = this.nextElementSibling;
-            if (sectionContent.style.display === 'none' || sectionContent.style.display === '') {
-                sectionContent.style.display = 'block';
+    toggleButton.addEventListener('click', function() {
+        sections.forEach(section => {
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
             } else {
-                sectionContent.style.display = 'none';
+                section.style.display = 'none';
             }
         });
     });
