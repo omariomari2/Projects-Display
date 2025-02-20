@@ -11,9 +11,6 @@
     <title>My Projects Display</title>
 </head>
 <body>
-    <button id="darkModeToggle" class="dark-mode-toggle">
-        <i class="fas fa-moon"></i>
-    </button>
     <div class="main-container">
         <section class="profile-section">
             <div class="section-content">
@@ -347,52 +344,6 @@
         </section>
     </div>
     <script>
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // Check for saved dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-        
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            // Update button icon
-            if (body.classList.contains('dark-mode')) {
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-
-        // Handle project card clicks on mobile
-        function handleProjectClick(event) {
-            // Only handle clicks on mobile devices
-            if (window.innerWidth > 768) return;
-            
-            const projectContent = event.currentTarget;
-            const demoLink = projectContent.querySelector('a[href*="demo"], a[href*="site"]:not([href*="github"])');
-            const liveLink = projectContent.querySelector('a[href*="site"], a[href*="io"]');
-            const codeLink = projectContent.querySelector('a[href*="github"]');
-            
-            // Priority: demo > live site > code
-            const targetLink = demoLink || liveLink || codeLink;
-            
-            if (targetLink) {
-                targetLink.click();
-            }
-        }
-
-        // Add click handlers to all project cards
-        document.querySelectorAll('.project-content').forEach(card => {
-            card.addEventListener('click', handleProjectClick);
-        });
-
         // Initialize EmailJS
         (function() {
             emailjs.init("ySHgOCav0GR7JaPsb");
@@ -491,6 +442,28 @@
                 }, 1000);
             }, 2000);
         };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Project click handler for mobile
+            document.querySelectorAll('.item').forEach(project => {
+                project.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const demoLink = this.querySelector('.demo-link');
+                        const liveLink = this.querySelector('.live-link');
+                        const codeLink = this.querySelector('.code-link');
+                        
+                        if (demoLink) {
+                            window.location.href = demoLink.href;
+                        } else if (liveLink) {
+                            window.location.href = liveLink.href;
+                        } else if (codeLink) {
+                            window.location.href = codeLink.href;
+                        }
+                    }
+                });
+            });
+        });
     </script>
     <script src="assets/js/toggleSections.js"></script>
 </body>
