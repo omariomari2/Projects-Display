@@ -1,3 +1,54 @@
+/* Common styles for all project types */
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover::after {
+    opacity: 1;
+}
+
+.purple::after {
+    background-color: #8844aa;
+}
+
+.small-green::after {
+    background-color: #44aa44;
+}
+
+.small-red::after {
+    background-color: #ff6b6b;
+}
+
+.red::after {
+    background-color: #ff4444;
+}
+
+.split::after {
+    background-color: #0088cc;
+}
+
+.split-bottom::after {
+    background-color: #44ffff;
+}
+
+.top-blue::after {
+    background-color: #0066cc;
+}
+
+/* Show content on hover */
+.item:hover .project-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item:hover::before {
+    opacity: 0;
+}
+
 body {
     margin: 0;
     display: flex;
@@ -18,8 +69,30 @@ body {
     overflow-y: auto;
 }
 
+/* Animated gradient background */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .profile-section {
-    background-color: white;
+    background: linear-gradient(
+        -45deg,
+        #ff6b6b,
+        #4ecdc4,
+        #45b7d1,
+        #96c93d,
+        #e056fd
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
     padding: 1.5rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -29,9 +102,80 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.profile-section::-webkit-scrollbar {
-    display: none;
+/* Add glass effect to profile card for better contrast */
+.profile-card {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Adjust text colors for better visibility */
+.profile-info h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-info h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        to right,
+        #ff6b6b,
+        #4ecdc4,
+        #45b7d1,
+        #96c93d,
+        #e056fd
+    );
+    transform-origin: bottom right;
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.profile-info h1:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.profile-info .title {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.section h3 {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.section p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Make skill tags pop against the gradient */
+.skill-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Adjust dark mode styles */
+body.dark-mode .profile-section {
+    filter: brightness(0.8) saturate(1.2);
+}
+
+body.dark-mode .profile-card {
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .profile-card {
@@ -180,21 +324,22 @@ body {
 }
 
 .section {
-    background-color: #f8f9fa;
+    background: transparent;
     padding: 1.5rem;
     border-radius: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .section h3 {
     margin: 0 0 1rem 0;
-    color: #333;
+    color: #ffffff;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
 .section p {
     margin: 0;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     font-weight: 300;
 }
@@ -208,21 +353,21 @@ body {
 }
 
 .experience-item h4 {
-    color: #333;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
     margin: 0 0 0.3rem 0;
 }
 
 .experience-item .company {
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
     font-weight: 500;
     margin: 0;
 }
 
 .experience-item .duration {
-    color: #888;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
     margin: 0.2rem 0 0.8rem 0;
 }
@@ -233,7 +378,7 @@ body {
 }
 
 .experience-item li {
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 0.5rem;
@@ -252,14 +397,14 @@ body {
 }
 
 .contribution-item h4 {
-    color: #333;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
     margin: 0 0 0.3rem 0;
 }
 
 .contribution-item .duration {
-    color: #888;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
     margin: 0;
 }
@@ -271,13 +416,27 @@ body {
 }
 
 .skill-tag {
-    background-color: #8844aa;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    animation: textPulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--animation-order, 0) * 0.2s);
 }
+
+.skills-list .skill-tag:nth-child(1) { --animation-order: 0; }
+.skills-list .skill-tag:nth-child(2) { --animation-order: 1; }
+.skills-list .skill-tag:nth-child(3) { --animation-order: 2; }
+.skills-list .skill-tag:nth-child(4) { --animation-order: 3; }
+.skills-list .skill-tag:nth-child(5) { --animation-order: 4; }
+.skills-list .skill-tag:nth-child(6) { --animation-order: 5; }
+.skills-list .skill-tag:nth-child(7) { --animation-order: 6; }
+.skills-list .skill-tag:nth-child(8) { --animation-order: 7; }
+.skills-list .skill-tag:nth-child(9) { --animation-order: 8; }
+.skills-list .skill-tag:nth-child(10) { --animation-order: 9; }
+.skills-list .skill-tag:nth-child(11) { --animation-order: 10; }
 
 .projects-section {
     padding: 20px;
@@ -379,7 +538,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(136, 68, 170, 0.95);
+    background: #8844aa;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -500,7 +659,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(68, 170, 68, 0.95);
+    background: #44aa44;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -615,7 +774,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(102, 170, 255, 0.95);
+    background: #66aaff;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -730,7 +889,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 68, 68, 0.95);
+    background: #ff4444;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -845,7 +1004,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(136, 68, 170, 0.95);
+    background: #8844aa;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -974,7 +1133,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 136, 204, 0.95);
+    background: #0088cc;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1095,7 +1254,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(68, 170, 68, 0.95);
+    background: #44aa44;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1201,7 +1360,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 102, 204, 0.95);
+    background: #0066cc;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1316,7 +1475,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 107, 107, 0.95);
+    background: #ff6b6b;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1501,33 +1660,61 @@ body {
     border-color: #dc3545;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes textPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.grid-container .item {
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out forwards;
-  animation-delay: calc(0.5s * var(--i));
+.pulsating-text {
+    animation: textPulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--animation-order, 0) * 0.2s);
 }
 
-/* Set different delays for grid items */
-.grid-container .item:nth-child(1) { --i: 1; }
-.grid-container .item:nth-child(2) { --i: 1.2; }
-.grid-container .item:nth-child(3) { --i: 1.4; }
-.grid-container .item:nth-child(4) { --i: 1.6; }
-.grid-container .item:nth-child(5) { --i: 1.8; }
-.grid-container .item:nth-child(6) { --i: 2; }
-.grid-container .item:nth-child(7) { --i: 2.2; }
-.grid-container .item:nth-child(8) { --i: 2.4; }
-.grid-container .item:nth-child(9) { --i: 2.6; }
+/* Adjust animation for dark mode */
+.dark-mode .pulsating-text {
+    animation-name: textPulseDark;
+}
+
+@keyframes textPulseDark {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Add animation order to skill tags */
+.skills-list .skill-tag:nth-child(1) { --animation-order: 0; }
+.skills-list .skill-tag:nth-child(2) { --animation-order: 1; }
+.skills-list .skill-tag:nth-child(3) { --animation-order: 2; }
+.skills-list .skill-tag:nth-child(4) { --animation-order: 3; }
+.skills-list .skill-tag:nth-child(5) { --animation-order: 4; }
+.skills-list .skill-tag:nth-child(6) { --animation-order: 5; }
+.skills-list .skill-tag:nth-child(7) { --animation-order: 6; }
+.skills-list .skill-tag:nth-child(8) { --animation-order: 7; }
+.skills-list .skill-tag:nth-child(9) { --animation-order: 8; }
+.skills-list .skill-tag:nth-child(10) { --animation-order: 9; }
+.skills-list .skill-tag:nth-child(11) { --animation-order: 10; }
 
 .project-box {
     /* ... existing styles ... */
@@ -1797,37 +1984,74 @@ body {
     }
 }
 
-/* Dark mode styles */
-body.dark-mode {
+/* Dark mode styles - only for profile section */
+body.dark-mode .profile-section {
+    background-color: #000000;
+    color: #000000;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode .profile-card {
+    background-color: #000000;
+    color: #000000;
+}
+
+body.dark-mode .profile-info h1 {
+    color: #000000;
+}
+
+body.dark-mode .profile-info .title {
+    color: #333333;
+}
+
+body.dark-mode .social-links a {
+    color: #0066cc;
+}
+
+body.dark-mode .section h3 {
+    color: #000000;
+}
+
+body.dark-mode .section p {
+    color: #000000;
+}
+
+body.dark-mode .skill-tag {
     background-color: #1a1a1a;
     color: #ffffff;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    border: 1px solid #333333;
 }
 
-.dark-mode .profile-section,
-.dark-mode .projects-section,
-.dark-mode .project-content,
-.dark-mode .profile-card {
-    background-color: #2d2d2d;
-    color: #ffffff;
-    transition: background-color 0.5s ease, color 0.5s ease;
+body.dark-mode .experience-item h4 {
+    color: #000000;
 }
 
-.dark-mode .project-skill-tag {
-    background-color: #3d3d3d;
-    color: #ffffff;
-    transition: background-color 0.5s ease, color 0.5s ease;
+body.dark-mode .experience-item .company {
+    color: #333333;
 }
 
-.dark-mode a {
-    color: #7cb7ff;
-    transition: color 0.5s ease;
+body.dark-mode .experience-item .duration {
+    color: #666666;
 }
 
-.section-content {
-    display: block; /* Default to visible */
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
+body.dark-mode .experience-item li {
+    color: #333333;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #1a1a1a;
+    color: #000000;
+    border: 1px solid #333333;
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+    color: #666666;
+}
+
+body.dark-mode .section {
+    border-bottom: 1px solid #333333;
 }
 
 .toggle-button {
@@ -1884,6 +2108,69 @@ body.dark-mode {
 .toggle-sections-button i {
     font-size: 1.2rem;
 }
+
+.section-content {
+    display: block; /* Default to visible */
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+/* Pulsating text animation */
+@keyframes textPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.pulsating-text {
+    animation: textPulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--animation-order, 0) * 0.2s); /* Add delay based on position */
+}
+
+/* Adjust animation for dark mode */
+.dark-mode .pulsating-text {
+    animation-name: textPulseDark;
+}
+
+@keyframes textPulseDark {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Add animation order to skill tags */
+.skills-list .skill-tag:nth-child(1) { --animation-order: 0; }
+.skills-list .skill-tag:nth-child(2) { --animation-order: 1; }
+.skills-list .skill-tag:nth-child(3) { --animation-order: 2; }
+.skills-list .skill-tag:nth-child(4) { --animation-order: 3; }
+.skills-list .skill-tag:nth-child(5) { --animation-order: 4; }
+.skills-list .skill-tag:nth-child(6) { --animation-order: 5; }
+.skills-list .skill-tag:nth-child(7) { --animation-order: 6; }
+.skills-list .skill-tag:nth-child(8) { --animation-order: 7; }
+.skills-list .skill-tag:nth-child(9) { --animation-order: 8; }
+.skills-list .skill-tag:nth-child(10) { --animation-order: 9; }
+.skills-list .skill-tag:nth-child(11) { --animation-order: 10; }
 
 /* Remove any button text overlays */
 button::before,
