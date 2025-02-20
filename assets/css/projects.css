@@ -1783,3 +1783,22 @@ body {
 .dark-mode .project-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+.section-content {
+    display: block; /* Default to visible */
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+.toggle-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
