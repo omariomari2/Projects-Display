@@ -1688,6 +1688,37 @@ body {
     body {
         overflow-y: auto !important;
     }
+
+    .project-card {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .project-card .project-content {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .project-card.show-content .project-content {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Add a subtle indicator that cards are tappable */
+    .project-card::after {
+        content: "Tap to view";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        pointer-events: none;
+    }
+
+    .project-card.show-content::after {
+        content: "Tap to close";
+    }
 }
 
 /* Add smaller screen adjustments */
@@ -1951,4 +1982,12 @@ button[type="submit"] {
 button[type="submit"]::after {
     content: "Send Message";
     display: inline-block !important;
+}
+
+/* Keep hover effect for desktop */
+@media (min-width: 769px) {
+    .project-card .project-content {
+        opacity: 1;
+        visibility: visible;
+    }
 }
