@@ -1814,24 +1814,33 @@ body {
 }
 
 .toggle-sections-button {
-    background-color: #4CAF50; /* Match your theme color */
-    color: white;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
     border: none;
-    padding: 0.5rem 1rem;
     cursor: pointer;
-    margin: 1rem 0;
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .toggle-sections-button:hover {
-    background-color: #45a049; /* Slightly darker shade for hover */
-    transform: translateY(-2px); /* Lift effect on hover */
+    transform: scale(1.05);
 }
 
 .toggle-sections-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5); /* Focus ring */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-sections-button i {
+    font-size: 1.2rem;
 }
