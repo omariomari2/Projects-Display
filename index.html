@@ -143,7 +143,10 @@
         </section>
         <section class="projects-section">
             <div class="section-content">
-                <div class="loading-text" id="loadingText">Loading Projects...</div>
+                <div class="loading-container" id="loadingContainer">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Loading Projects...</div>
+                </div>
                 <div class="grid-container">
                     <div class="item purple">
                         <div class="project-content">
@@ -160,8 +163,8 @@
                             </div>
                             <div class="project-buttons">
                                 <a href="#" class="project-button">
-                                    <i class="fas fa-play-circle"></i>
-                                    View Demo
+                                    <i class="fas fa-code-branch"></i>
+                                    In Development
                                 </a>
                                 <a href="https://github.com/omariomari2/VSN-Extension" target="_blank" class="project-button">
                                     <i class="fab fa-github"></i>
@@ -175,6 +178,7 @@
                             <div class="project-icon">
                                 <i class="fas fa-church fa-2x"></i>
                             </div>
+                            <h3>Church Website</h3>
                             <p>Developed a fully functional and informative website for my church. Website provides comprehensive coverage of church activities, member engagement, and related events.</p>
                             <div class="project-skills">
                                 <span class="project-skill-tag">React</span>
@@ -199,6 +203,7 @@
                             <div class="project-icon">
                                 <i class="fas fa-clock fa-2x"></i>
                             </div>
+                            <h3>Pomodoro Timer</h3>
                             <p>Created a Chrome extension combining the Pomodoro Technique with entertainment, implementing work/break timers and interactive games to boost productivity.</p>
                             <div class="project-skills">
                                 <span class="project-skill-tag">HTML/CSS</span>
@@ -247,6 +252,7 @@
                             <div class="project-icon">
                                 <i class="fas fa-shield-alt fa-2x"></i>
                             </div>
+                            <h3>Web Security Tool</h3>
                             <p>Developed a Python-based web security tool that performs comprehensive port scanning on user-provided URLs. The tool analyzes potential vulnerabilities and presents findings in clear, human-readable language, making security assessments accessible to non-technical users.</p>
                             <div class="project-skills">
                                 <span class="project-skill-tag">Python</span>
@@ -271,6 +277,7 @@
                             <div class="project-icon">
                                 <i class="fas fa-handshake fa-2x"></i>
                             </div>
+                            <h3>Collaboration Opportunities</h3>
                             <p>I am actively seeking opportunities to connecting with teams and organizations focused on web security, software development, and technological advancement.</p>
                             <div class="project-buttons">
                                 <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="project-button">
@@ -313,6 +320,7 @@
                             <div class="project-icon">
                                 <i class="fas fa-book fa-2x"></i>
                             </div>
+                            <h3>Ghanaian History Timeline</h3>
                             <p>Currently developing an interactive web application that will visualize significant events in Ghana's history through a dynamic timeline with flashcard-style pop-ups. This work-in-progress project aims to provide users with an immersive historical exploration experience. [In Progress]</p>
                             <div class="project-skills">
                                 <span class="project-skill-tag">React.js</span>
@@ -434,28 +442,23 @@
             }
         });
 
-        // JavaScript to handle loading text and project animations
         window.onload = function() {
-            const loadingText = document.getElementById('loadingText');
+            const loadingContainer = document.getElementById('loadingContainer');
             const gridContainer = document.querySelector('.grid-container');
+            const projects = document.querySelectorAll('.item');
             
-            // Initially hide all project items
-            gridContainer.style.opacity = '0';
-            
+            // Hide loading after a short delay (simulating loading time)
             setTimeout(() => {
-                loadingText.style.opacity = '0';
-                setTimeout(() => {
-                    loadingText.style.display = 'none';
-                    gridContainer.style.opacity = '1';
-                    const items = document.querySelectorAll('.grid-container .item');
-                    
-                    items.forEach((item, index) => {
-                        item.style.animation = 'none';
-                        void item.offsetHeight;
-                        item.style.animation = `fadeIn 0.8s ease-out ${0.5 + index * 0.2}s forwards`;
-                    });
-                }, 1000);
-            }, 2000);
+                loadingContainer.style.display = 'none';
+                gridContainer.classList.add('loaded');
+                
+                // Add fade-in effect to each project with a stagger
+                projects.forEach((project, index) => {
+                    setTimeout(() => {
+                        project.classList.add('fade-in');
+                    }, index * 100); // 100ms delay between each project
+                });
+            }, 1000);
         };
 
         document.addEventListener('DOMContentLoaded', function() {
