@@ -1786,8 +1786,8 @@ body {
 
     .skill-tag,
     .project-skill-tag {
-        font-size: 0.75rem;
-        padding: 3px 6px;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
     }
 
     /* Adjust profile image size */
@@ -2095,111 +2095,65 @@ button[type="submit"]::after {
     }
 }
 
-/* Technology-specific skill tag colors */
-.project-skill-tag {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    color: white;
-    margin: 2px;
-    display: inline-block;
-    font-weight: 500;
+/* Add specific styles for each skill tag */
+.skill-tag.frontend {
+    background-color: #61dafb; /* React color */
+    color: #fff;
 }
 
-/* Frontend Technologies */
-.project-skill-tag:contains("HTML"), 
-.project-skill-tag:contains("HTML5") {
-    background-color: #E44D26;  /* HTML orange */
+.skill-tag.backend {
+    background-color: #f0db4f; /* JavaScript color */
+    color: #323330;
 }
 
-.project-skill-tag:contains("CSS"), 
-.project-skill-tag:contains("CSS3") {
-    background-color: #264DE4;  /* CSS blue */
+.skill-tag.nodejs {
+    background-color: #68a063; /* Node.js color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("React") {
-    background-color: #61DAFB;  /* React blue */
-    color: #000000;  /* Dark text for light background */
+.skill-tag.firebase {
+    background-color: #ffca28; /* Firebase color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("Tailwind") {
-    background-color: #38B2AC;  /* Tailwind teal */
+.skill-tag.netlify {
+    background-color: #00c7b7; /* Netlify color */
+    color: #fff;
 }
 
-/* Backend Technologies */
-.project-skill-tag:contains("Node") {
-    background-color: #339933;  /* Node.js green */
+.skill-tag.webdev {
+    background-color: #e34f26; /* HTML/CSS color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("Express") {
-    background-color: #000000;  /* Express black */
+.skill-tag.uiux {
+    background-color: #ff4081; /* UI/UX color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("Python") {
-    background-color: #3776AB;  /* Python blue */
+.skill-tag.cybersecurity {
+    background-color: #2ecc71; /* Cybersecurity color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("MongoDB") {
-    background-color: #47A248;  /* MongoDB green */
+.skill-tag.vulnerability {
+    background-color: #e74c3c; /* Vulnerability Assessment color */
+    color: #fff;
 }
 
-/* Cloud/Deployment */
-.project-skill-tag:contains("Firebase") {
-    background-color: #FFCA28;  /* Firebase yellow */
-    color: #000000;  /* Dark text for light background */
+.skill-tag.portscanning {
+    background-color: #3498db; /* Port Scanning color */
+    color: #fff;
 }
 
-.project-skill-tag:contains("Netlify") {
-    background-color: #00C7B7;  /* Netlify teal */
+.skill-tag.networksecurity {
+    background-color: #9b59b6; /* Network Security color */
+    color: #fff;
 }
 
-/* Development Tools */
-.project-skill-tag:contains("API") {
-    background-color: #6236FF;  /* Purple for APIs */
-}
-
-.project-skill-tag:contains("JSON") {
-    background-color: #000000;  /* Black for JSON */
-}
-
-.project-skill-tag:contains("Chrome Extension") {
-    background-color: #4285F4;  /* Chrome blue */
-}
-
-/* Security */
-.project-skill-tag:contains("Cybersecurity"),
-.project-skill-tag:contains("Network Security"),
-.project-skill-tag:contains("Port Scanning") {
-    background-color: #FF4444;  /* Security red */
-}
-
-/* General Skills */
-.project-skill-tag:contains("UI/UX") {
-    background-color: #FF6B6B;  /* Coral for UI/UX */
-}
-
-.project-skill-tag:contains("Game Development") {
-    background-color: #7B42BC;  /* Purple for Game Dev */
-}
-
-.project-skill-tag:contains("Real-time") {
-    background-color: #00B4D8;  /* Bright blue for Real-time */
-}
-
-/* Add hover effect */
-.project-skill-tag {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-skill-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Adjust for mobile */
-@media (max-width: 768px) {
-    .project-skill-tag {
-        font-size: 0.75rem;
-        padding: 3px 6px;
-    }
+/* Example of adding a logo as a background image */
+.skill-tag.react {
+    background-image: url('path/to/react-logo.png');
+    background-size: cover;
+    color: transparent; /* Hide text if using a logo */
 }
