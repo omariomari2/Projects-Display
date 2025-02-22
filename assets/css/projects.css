@@ -258,13 +258,36 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #f8f9fa;
+    background-color: transparent;
     position: relative;
 }
 
 .social-links a:hover {
     transform: translateY(-2px);
-    background-color: #f0f0f0;
+}
+
+.social-links a span {
+    display: none;
+}
+
+.social-links a:hover span {
+    display: inline;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover span {
+    opacity: 1;
 }
 
 /* Specific hover colors for each icon */
