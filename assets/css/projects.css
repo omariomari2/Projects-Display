@@ -1786,8 +1786,8 @@ body {
 
     .skill-tag,
     .project-skill-tag {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+        padding: 3px 6px;
     }
 
     /* Adjust profile image size */
@@ -2092,5 +2092,114 @@ button[type="submit"]::after {
     .project-card .project-content {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+/* Technology-specific skill tag colors */
+.project-skill-tag {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: white;
+    margin: 2px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+/* Frontend Technologies */
+.project-skill-tag:contains("HTML"), 
+.project-skill-tag:contains("HTML5") {
+    background-color: #E44D26;  /* HTML orange */
+}
+
+.project-skill-tag:contains("CSS"), 
+.project-skill-tag:contains("CSS3") {
+    background-color: #264DE4;  /* CSS blue */
+}
+
+.project-skill-tag:contains("React") {
+    background-color: #61DAFB;  /* React blue */
+    color: #000000;  /* Dark text for light background */
+}
+
+.project-skill-tag:contains("Tailwind") {
+    background-color: #38B2AC;  /* Tailwind teal */
+}
+
+/* Backend Technologies */
+.project-skill-tag:contains("Node") {
+    background-color: #339933;  /* Node.js green */
+}
+
+.project-skill-tag:contains("Express") {
+    background-color: #000000;  /* Express black */
+}
+
+.project-skill-tag:contains("Python") {
+    background-color: #3776AB;  /* Python blue */
+}
+
+.project-skill-tag:contains("MongoDB") {
+    background-color: #47A248;  /* MongoDB green */
+}
+
+/* Cloud/Deployment */
+.project-skill-tag:contains("Firebase") {
+    background-color: #FFCA28;  /* Firebase yellow */
+    color: #000000;  /* Dark text for light background */
+}
+
+.project-skill-tag:contains("Netlify") {
+    background-color: #00C7B7;  /* Netlify teal */
+}
+
+/* Development Tools */
+.project-skill-tag:contains("API") {
+    background-color: #6236FF;  /* Purple for APIs */
+}
+
+.project-skill-tag:contains("JSON") {
+    background-color: #000000;  /* Black for JSON */
+}
+
+.project-skill-tag:contains("Chrome Extension") {
+    background-color: #4285F4;  /* Chrome blue */
+}
+
+/* Security */
+.project-skill-tag:contains("Cybersecurity"),
+.project-skill-tag:contains("Network Security"),
+.project-skill-tag:contains("Port Scanning") {
+    background-color: #FF4444;  /* Security red */
+}
+
+/* General Skills */
+.project-skill-tag:contains("UI/UX") {
+    background-color: #FF6B6B;  /* Coral for UI/UX */
+}
+
+.project-skill-tag:contains("Game Development") {
+    background-color: #7B42BC;  /* Purple for Game Dev */
+}
+
+.project-skill-tag:contains("Real-time") {
+    background-color: #00B4D8;  /* Bright blue for Real-time */
+}
+
+/* Add hover effect */
+.project-skill-tag {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+    .project-skill-tag {
+        font-size: 0.75rem;
+        padding: 3px 6px;
     }
 }
