@@ -465,27 +465,14 @@
             // Project click handler for mobile
             document.querySelectorAll('.item').forEach(project => {
                 project.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const status = project.getAttribute('data-status');
-                        let url = '#';
-                        switch (status) {
-                            case 'live':
-                                url = project.getAttribute('data-live-url');
-                                break;
-                            case 'demo':
-                                url = project.getAttribute('data-demo-url');
-                                break;
-                            case 'code':
-                                url = project.getAttribute('data-code-url');
-                                break;
-                            case 'development':
-                                alert('This project is currently in development.');
-                                return;
-                        }
-                        if (url !== '#') {
-                            window.open(url, '_blank');
-                        }
+                    const status = this.getAttribute('data-status');
+                    if (status === 'development') {
+                        alert('This project is currently in development.');
+                        return;
+                    }
+                    const githubUrl = this.getAttribute('data-github-url');
+                    if (githubUrl) {
+                        window.open(githubUrl, '_blank');
                     }
                 });
             });
