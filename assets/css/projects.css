@@ -2287,3 +2287,14 @@ button[type="submit"]::after {
         order: 1;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .item {
+        width: 100%;
+    }
+}
