@@ -2278,23 +2278,16 @@ button[type="submit"]::after {
     100% { transform: rotate(360deg); }
 }
 
-@media only screen and (max-width: 600px) {
-    .profile-section {
-        display: flex;
-        flex-direction: column;
-    }
-    .projects-section {
-        order: 1;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
+@media (max-width: 480px) {
+    .project-content {
+        padding: 10px;
+        font-size: 14px;
     }
     .item {
         width: 100%;
+        margin-bottom: 20px;
+    }
+    .social-links a {
+        font-size: 12px;
     }
 }
