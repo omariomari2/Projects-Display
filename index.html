@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/projects.js"></script>
     <title>My Projects Display</title>
 </head>
 <body>
@@ -142,220 +143,527 @@
             </div>
         </section>
         <section class="projects-section">
-            <div class="section-content">
-                <div class="loading-container" id="loadingContainer">
-                    <div class="loading-spinner"></div>
-                    <div class="loading-text">Loading Projects...</div>
+            <div class="view-toggle">
+                <span class="toggle-label">All Projects</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="viewToggle">
+                    <span class="toggle-slider">
+                        <div class="toggle-icons">
+                            <i class="fas fa-th"></i>
+                            <i class="fas fa-images"></i>
+                        </div>
+                    </span>
+                </label>
+                <span class="toggle-label">Showcase</span>
+            </div>
+            
+            <div class="project-showcase">
+                <div class="project-slide active">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-passport fa-2x"></i>
+                        </div>
+                        <h3>Visa Appointment Extension</h3>
+                        <p>Created a Chrome extension used by 10+ users to secure timely visa appointments. Integrated real-time data fetching from external APIs to deliver up-to-date information, improving user decision making and efficiency.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">HTML/CSS</span>
+                            <span class="project-skill-tag">JavaScript</span>
+                            <span class="project-skill-tag">JSON</span>
+                            <span class="project-skill-tag">APIs</span>
+                            <span class="project-skill-tag">Chrome Extension</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-button">
+                                <i class="fas fa-code-branch"></i>
+                                In Development
+                            </a>
+                            <a href="https://github.com/omariomari2/VSN-Extension" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="grid-container">
-                    <div class="item purple">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-passport fa-2x"></i>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-church fa-2x"></i>
+                        </div>
+                        <h3>Church Website</h3>
+                        <p>Developed a fully functional and informative website for my church. Website provides comprehensive coverage of church activities, member engagement, and related events.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">React</span>
+                            <span class="project-skill-tag">Tailwind CSS</span>
+                            <span class="project-skill-tag">Node.js</span>
+                            <span class="project-skill-tag">Netlify</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://welcome-to-church.netlify.app/" target="_blank" class="project-button">
+                                <i class="fas fa-globe"></i>
+                                Visit Site
+                            </a>
+                            <a href="https://github.com/omariomari2/Church-Site.git" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-clock fa-2x"></i>
+                        </div>
+                        <h3>Pomodoro Timer</h3>
+                        <p>Created a Chrome extension combining the Pomodoro Technique with entertainment, implementing work/break timers and interactive games to boost productivity.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">HTML/CSS</span>
+                            <span class="project-skill-tag">JavaScript</span>
+                            <span class="project-skill-tag">JSON</span>
+                            <span class="project-skill-tag">APIs</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://drive.google.com/file/d/1BozsxFAUqzG_eI2vsZMZCp3tictTIeor/view?usp=sharing" target="_blank" class="project-button">
+                                <i class="fas fa-play-circle"></i>
+                                View Demo
+                            </a>
+                            <a href="https://github.com/omariomari2/Pomodoro-Play.git" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-user-tie fa-2x"></i>
+                        </div>
+                        <h3>Portfolio Website</h3>
+                        <p>Developed a dynamic portfolio website showcasing my technical journey. Implemented interactive features and EmailJS for seamless contact functionality.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">JavaScript</span>
+                            <span class="project-skill-tag">EmailJS</span>
+                            <span class="project-skill-tag">HTML/CSS</span>
+                            <span class="project-skill-tag">UI/UX</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://omariomari2.github.io/Personal-Website/" target="_blank" class="project-button">
+                                <i class="fas fa-globe"></i>
+                                Visit Site
+                            </a>
+                            <a href="https://github.com/omariomari2/Personal-Website" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt fa-2x"></i>
+                        </div>
+                        <h3>Web Security Tool</h3>
+                        <p>Developed a Python-based web security tool that performs comprehensive port scanning on user-provided URLs. The tool analyzes potential vulnerabilities and presents findings in clear, human-readable language, making security assessments accessible to non-technical users.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">Python</span>
+                            <span class="project-skill-tag">Cybersecurity</span>
+                            <span class="project-skill-tag">Port Scanning</span>
+                            <span class="project-skill-tag">Network Security</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner/blob/main/wvs%20demo.gif" target="_blank" class="project-button">
+                                <i class="fas fa-play-circle"></i>
+                                View Demo
+                            </a>
+                            <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner.git" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-handshake fa-2x"></i>
+                        </div>
+                        <h3>Collaboration Opportunities</h3>
+                        <p>I am actively seeking opportunities to connect with teams and organizations focused on web security, software development, and technological advancement.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">Open to Work</span>
+                            <span class="project-skill-tag">Collaboration</span>
+                            <span class="project-skill-tag">Networking</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="project-button">
+                                <i class="fas fa-envelope"></i>
+                                Get in Touch
+                            </a>
+                            <a href="https://www.linkedin.com/in/bernard-owusu-0a0a1b1b2/" target="_blank" class="project-button">
+                                <i class="fab fa-linkedin"></i>
+                                Connect
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-users-cog fa-2x"></i>
+                        </div>
+                        <h3>Research Team Landing Page</h3>
+                        <p>Designed a professional landing page with secure member verification, providing audiences with an immersive view into research processes, team dynamics, and findings. Implemented Firebase authentication for secure team member access.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">HTML/CSS</span>
+                            <span class="project-skill-tag">JavaScript</span>
+                            <span class="project-skill-tag">Firebase Auth</span>
+                            <span class="project-skill-tag">UI/UX</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://omariomari2.github.io/The-Research-Team/" target="_blank" class="project-button">
+                                <i class="fas fa-globe"></i>
+                                Visit Site
+                            </a>
+                            <a href="https://github.com/omariomari2/The-Research-Team.git" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-book fa-2x"></i>
+                        </div>
+                        <h3>Ghanaian History Timeline</h3>
+                        <p>Currently developing an interactive web application that will visualize significant events in Ghana's history through a dynamic timeline with flashcard-style pop-ups. This work-in-progress project aims to provide users with an immersive historical exploration experience.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">React.js</span>
+                            <span class="project-skill-tag">Node.js</span>
+                            <span class="project-skill-tag">Express.js</span>
+                            <span class="project-skill-tag">MongoDB</span>
+                            <span class="project-skill-tag">HTML5/CSS3</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="project-button" style="cursor: not-allowed; opacity: 0.6;">
+                                <i class="fas fa-code-branch"></i>
+                                In Development
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-slide">
+                    <div class="project-content">
+                        <div class="project-icon">
+                            <i class="fas fa-keyboard fa-2x"></i>
+                        </div>
+                        <h3>Typing Speed Game</h3>
+                        <p>Developed an interactive Python-based typing speed game that tracks and analyzes users' typing performance within a set time limit. Implemented key features such as dynamic difficulty adjustment, real-time word count tracking, and visual feedback to enhance user engagement and motivation.</p>
+                        <div class="project-skills">
+                            <span class="project-skill-tag">Python</span>
+                            <span class="project-skill-tag">Game Development</span>
+                            <span class="project-skill-tag">UI/UX</span>
+                            <span class="project-skill-tag">Real-time Processing</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/omariomari2/Words-Per-Minute-/blob/main/WPM%20demo.gif" target="_blank" class="project-button">
+                                <i class="fas fa-play-circle"></i>
+                                View Demo
+                            </a>
+                            <a href="https://github.com/omariomari2/Words-Per-Minute-.git" target="_blank" class="project-button">
+                                <i class="fab fa-github"></i>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="nav-button prev-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-button next-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="project-numbers">
+                    <div class="project-number active">1</div>
+                    <div class="project-number">2</div>
+                    <div class="project-number">3</div>
+                    <div class="project-number">4</div>
+                    <div class="project-number">5</div>
+                    <div class="project-number">6</div>
+                    <div class="project-number">7</div>
+                    <div class="project-number">8</div>
+                    <div class="project-number">9</div>
+                </div>
+            </div>
+            
+            <div class="all-projects-view">
+                <div class="projects-grid">
+                    <!-- Project 1: Visa Appointment Extension -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-passport"></i>
+                                </div>
+                                <h3 class="project-card-title">Visa Appointment Extension</h3>
                             </div>
-                            <p>Created a Chrome extension used by 10+ users to secure timely visa appointments. Integrated real-time data fetching from external APIs to deliver up-to-date information, improving user decision making and efficiency.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">HTML/CSS</span>
-                                <span class="project-skill-tag">JavaScript</span>
-                                <span class="project-skill-tag">JSON</span>
-                                <span class="project-skill-tag">APIs</span>
-                                <span class="project-skill-tag">Chrome Extension</span>
+                            <p class="project-card-description">Created a Chrome extension used by 10+ users to secure timely visa appointments. Integrated real-time data fetching from external APIs to deliver up-to-date information, improving user decision making and efficiency.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">HTML/CSS</span>
+                                <span class="project-card-tag">JavaScript</span>
+                                <span class="project-card-tag">JSON</span>
+                                <span class="project-card-tag">APIs</span>
+                                <span class="project-card-tag">Chrome Extension</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="#" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="#" class="project-card-button">
                                     <i class="fas fa-code-branch"></i>
                                     In Development
                                 </a>
-                                <a href="https://github.com/omariomari2/VSN-Extension" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/VSN-Extension" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item small-green">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-church fa-2x"></i>
+                    
+                    <!-- Project 2: Church Website -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-church"></i>
+                                </div>
+                                <h3 class="project-card-title">Church Website</h3>
                             </div>
-                            <h3>Church Website</h3>
-                            <p>Developed a fully functional and informative website for my church. Website provides comprehensive coverage of church activities, member engagement, and related events.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">React</span>
-                                <span class="project-skill-tag">Tailwind CSS</span>
-                                <span class="project-skill-tag">Node.js</span>
-                                <span class="project-skill-tag">Netlify</span>
+                            <p class="project-card-description">Developed a fully functional and informative website for my church. Website provides comprehensive coverage of church activities, member engagement, and related events.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">React</span>
+                                <span class="project-card-tag">Tailwind CSS</span>
+                                <span class="project-card-tag">Node.js</span>
+                                <span class="project-card-tag">Netlify</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://welcome-to-church.netlify.app/" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://welcome-to-church.netlify.app/" target="_blank" class="project-card-button">
                                     <i class="fas fa-globe"></i>
                                     Visit Site
                                 </a>
-                                <a href="https://github.com/omariomari2/Church-Site.git" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/Church-Site.git" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item small-blue">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-clock fa-2x"></i>
+                    
+                    <!-- Project 3: Pomodoro Timer -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3 class="project-card-title">Pomodoro Timer</h3>
                             </div>
-                            <h3>Pomodoro Timer</h3>
-                            <p>Created a Chrome extension combining the Pomodoro Technique with entertainment, implementing work/break timers and interactive games to boost productivity.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">HTML/CSS</span>
-                                <span class="project-skill-tag">JavaScript</span>
-                                <span class="project-skill-tag">JSON</span>
-                                <span class="project-skill-tag">APIs</span>
+                            <p class="project-card-description">Created a Chrome extension combining the Pomodoro Technique with entertainment, implementing work/break timers and interactive games to boost productivity.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">HTML/CSS</span>
+                                <span class="project-card-tag">JavaScript</span>
+                                <span class="project-card-tag">JSON</span>
+                                <span class="project-card-tag">APIs</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://drive.google.com/file/d/1BozsxFAUqzG_eI2vsZMZCp3tictTIeor/view?usp=sharing" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://drive.google.com/file/d/1BozsxFAUqzG_eI2vsZMZCp3tictTIeor/view?usp=sharing" target="_blank" class="project-card-button">
                                     <i class="fas fa-play-circle"></i>
                                     View Demo
                                 </a>
-                                <a href="https://github.com/omariomari2/Pomodoro-Play.git" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/Pomodoro-Play.git" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item small-red">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-user-tie fa-2x"></i>
+                    
+                    <!-- Project 4: Portfolio Website -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h3 class="project-card-title">Portfolio Website</h3>
                             </div>
-                            <p>Developed a dynamic portfolio website showcasing my technical journey. Implemented interactive features and EmailJS for seamless contact functionality.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">JavaScript</span>
-                                <span class="project-skill-tag">EmailJS</span>
-                                <span class="project-skill-tag">HTML/CSS</span>
-                                <span class="project-skill-tag">UI/UX</span>
+                            <p class="project-card-description">Developed a dynamic portfolio website showcasing my technical journey. Implemented interactive features and EmailJS for seamless contact functionality.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">JavaScript</span>
+                                <span class="project-card-tag">EmailJS</span>
+                                <span class="project-card-tag">HTML/CSS</span>
+                                <span class="project-card-tag">UI/UX</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://omariomari2.github.io/Personal-Website/" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://omariomari2.github.io/Personal-Website/" target="_blank" class="project-card-button">
                                     <i class="fas fa-globe"></i>
                                     Visit Site
                                 </a>
-                                <a href="https://github.com/omariomari2/Personal-Website" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/Personal-Website" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item red">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-shield-alt fa-2x"></i>
+                    
+                    <!-- Project 5: Web Security Tool -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="project-card-title">Web Security Tool</h3>
                             </div>
-                            <h3>Web Security Tool</h3>
-                            <p>Developed a Python-based web security tool that performs comprehensive port scanning on user-provided URLs. The tool analyzes potential vulnerabilities and presents findings in clear, human-readable language, making security assessments accessible to non-technical users.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">Python</span>
-                                <span class="project-skill-tag">Cybersecurity</span>
-                                <span class="project-skill-tag">Port Scanning</span>
-                                <span class="project-skill-tag">Network Security</span>
+                            <p class="project-card-description">Developed a Python-based web security tool that performs comprehensive port scanning on user-provided URLs. The tool analyzes potential vulnerabilities and presents findings in clear, human-readable language, making security assessments accessible to non-technical users.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">Python</span>
+                                <span class="project-card-tag">Cybersecurity</span>
+                                <span class="project-card-tag">Port Scanning</span>
+                                <span class="project-card-tag">Network Security</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner/blob/main/wvs%20demo.gif" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner/blob/main/wvs%20demo.gif" target="_blank" class="project-card-button">
                                     <i class="fas fa-play-circle"></i>
                                     View Demo
                                 </a>
-                                <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner.git" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/Website-Vulnerability-Scanner.git" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item wide-green">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-handshake fa-2x"></i>
+                    
+                    <!-- Project 6: Collaboration Opportunities -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3 class="project-card-title">Collaboration Opportunities</h3>
                             </div>
-                            <h3>Collaboration Opportunities</h3>
-                            <p>I am actively seeking opportunities to connecting with teams and organizations focused on web security, software development, and technological advancement.</p>
-                            <div class="project-buttons">
-                                <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="project-button">
+                            <p class="project-card-description">I am actively seeking opportunities to connect with teams and organizations focused on web security, software development, and technological advancement.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">Open to Work</span>
+                                <span class="project-card-tag">Collaboration</span>
+                                <span class="project-card-tag">Networking</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="project-card-button">
                                     <i class="fas fa-envelope"></i>
                                     Get in Touch
                                 </a>
-                                <a href="https://www.linkedin.com/in/bernard-owusu-0a0a1b1b2/" target="_blank" class="project-button">
+                                <a href="https://www.linkedin.com/in/bernard-owusu-0a0a1b1b2/" target="_blank" class="project-card-button">
                                     <i class="fab fa-linkedin"></i>
                                     Connect
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item top-blue">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-users-cog fa-2x"></i>
+                    
+                    <!-- Project 7: Research Team Landing Page -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <h3 class="project-card-title">Research Team Landing Page</h3>
                             </div>
-                            <p>Designed a professional landing page with secure member verification, providing audiences with an immersive view into research processes, team dynamics, and findings. Implemented Firebase authentication for secure team member access.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">HTML/CSS</span>
-                                <span class="project-skill-tag">JavaScript</span>
-                                <span class="project-skill-tag">Firebase Auth</span>
-                                <span class="project-skill-tag">UI/UX</span>
+                            <p class="project-card-description">Designed a professional landing page with secure member verification, providing audiences with an immersive view into research processes, team dynamics, and findings.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">HTML/CSS</span>
+                                <span class="project-card-tag">JavaScript</span>
+                                <span class="project-card-tag">Firebase Auth</span>
+                                <span class="project-card-tag">UI/UX</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://omariomari2.github.io/The-Research-Team/" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://omariomari2.github.io/The-Research-Team/" target="_blank" class="project-card-button">
                                     <i class="fas fa-globe"></i>
                                     Visit Site
                                 </a>
-                                <a href="https://github.com/omariomari2/The-Research-Team.git" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/The-Research-Team.git" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item bottom-purple">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-book fa-2x"></i>
+                    
+                    <!-- Project 8: Ghanaian History Timeline -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <h3 class="project-card-title">Ghanaian History Timeline</h3>
                             </div>
-                            <h3>Ghanaian History Timeline</h3>
-                            <p>Currently developing an interactive web application that will visualize significant events in Ghana's history through a dynamic timeline with flashcard-style pop-ups. This work-in-progress project aims to provide users with an immersive historical exploration experience. [In Progress]</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">React.js</span>
-                                <span class="project-skill-tag">Node.js</span>
-                                <span class="project-skill-tag">Express.js</span>
-                                <span class="project-skill-tag">MongoDB</span>
-                                <span class="project-skill-tag">HTML5/CSS3</span>
-                                <span class="project-skill-tag">JavaScript</span>
+                            <p class="project-card-description">Currently developing an interactive web application that will visualize significant events in Ghana's history through a dynamic timeline with flashcard-style pop-ups.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">React.js</span>
+                                <span class="project-card-tag">Node.js</span>
+                                <span class="project-card-tag">Express.js</span>
+                                <span class="project-card-tag">MongoDB</span>
+                                <span class="project-card-tag">HTML5/CSS3</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="#" class="project-button" style="cursor: not-allowed; opacity: 0.6;">
+                            <div class="project-card-actions">
+                                <a href="#" class="project-card-button" style="cursor: not-allowed; opacity: 0.6;">
                                     <i class="fas fa-code-branch"></i>
                                     In Development
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="item split">
-                        <div class="project-content">
-                            <div class="project-icon">
-                                <i class="fas fa-keyboard fa-2x"></i>
+                    
+                    <!-- Project 9: Typing Speed Game -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div class="project-card-icon">
+                                    <i class="fas fa-keyboard"></i>
+                                </div>
+                                <h3 class="project-card-title">Typing Speed Game</h3>
                             </div>
-                            <p>Developed an interactive Python-based typing speed game that tracks and analyzes users' typing performance within a set time limit. Implemented key features such as dynamic difficulty adjustment, real-time word count tracking, and visual feedback to enhance user engagement and motivation.</p>
-                            <div class="project-skills">
-                                <span class="project-skill-tag">Python</span>
-                                <span class="project-skill-tag">Game Development</span>
-                                <span class="project-skill-tag">UI/UX</span>
-                                <span class="project-skill-tag">Real-time Processing</span>
+                            <p class="project-card-description">Developed an interactive Python-based typing speed game that tracks and analyzes users' typing performance within a set time limit.</p>
+                            <div class="project-card-tags">
+                                <span class="project-card-tag">Python</span>
+                                <span class="project-card-tag">Game Development</span>
+                                <span class="project-card-tag">UI/UX</span>
+                                <span class="project-card-tag">Real-time Processing</span>
                             </div>
-                            <div class="project-buttons">
-                                <a href="https://github.com/omariomari2/Words-Per-Minute-/blob/main/WPM%20demo.gif" target="_blank" class="project-button">
+                            <div class="project-card-actions">
+                                <a href="https://github.com/omariomari2/Words-Per-Minute-/blob/main/WPM%20demo.gif" target="_blank" class="project-card-button">
                                     <i class="fas fa-play-circle"></i>
                                     View Demo
                                 </a>
-                                <a href="https://github.com/omariomari2/Words-Per-Minute-.git" target="_blank" class="project-button">
+                                <a href="https://github.com/omariomari2/Words-Per-Minute-.git" target="_blank" class="project-card-button">
                                     <i class="fab fa-github"></i>
                                     View Code
                                 </a>
