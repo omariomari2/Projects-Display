@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectShowcase = document.querySelector('.project-showcase');
     const allProjectsView = document.querySelector('.all-projects-view');
     const projectsSection = document.querySelector('.projects-section');
+    const isMobile = window.innerWidth <= 768;
     
     let currentSlide = 0;
     let isAnimating = false;
     let slideInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
     // Initialize the view based on toggle state
     function initializeView() {
@@ -162,9 +165,98 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Touch event handlers for mobile swipe
+    function handleTouchStart(e) {
+        touchStartX = e.touches[0].clientX;
+    }
+    
+    function handleTouchMove(e) {
+        touchEndX = e.touches[0].clientX;
+    }
+    
+    function handleTouchEnd() {
+        if (!viewToggle.checked) return; // Only enable swipe in showcase view
+        
+        const swipeThreshold = 50; // Minimum distance for a swipe
+        const touchDiff = touchStartX - touchEndX;
+        
+        if (Math.abs(touchDiff) > swipeThreshold) {
+            clearInterval(slideInterval);
+            if (touchDiff > 0) {
+                // Swipe left, go to next slide
+                nextSlide();
+            } else {
+                // Swipe right, go to previous slide
+                prevSlide();
+            }
+            if (viewToggle.checked) {
+                startSlideInterval();
+            }
+        }
+    }
+    
+    // Add touch event listeners
+    projectShowcase.addEventListener('touchstart', handleTouchStart, false);
+    projectShowcase.addEventListener('touchmove', handleTouchMove, false);
+    projectShowcase.addEventListener('touchend', handleTouchEnd, false);
+
+    // Handle window resize events
+    window.addEventListener('resize', () => {
+        const wasDesktop = !isMobile;
+        const newIsMobile = window.innerWidth <= 768;
+        
+        // Only take action if we've crossed the mobile/desktop threshold
+        if (wasDesktop !== newIsMobile) {
+            // Force layout recalculation
+            document.body.style.opacity = '0.99';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 10);
+            
+            // Reset any mobile-specific styles that might be causing issues
+            if (!newIsMobile) {
+                // Moving from mobile to desktop
+                document.querySelectorAll('.project-content').forEach(content => {
+                    content.style.transform = '';
+                    content.style.opacity = '';
+                });
+            }
+        }
+    });
+
+    // Fix for iOS 100vh issue
+    function setHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Set the height on page load
+    setHeight();
+    // Update the height on window resize
+    window.addEventListener('resize', setHeight);
+    // Update the height on orientation change
+    window.addEventListener('orientationchange', setHeight);
+
     // Initialize the view toggle
     setupViewToggle();
     
     // Initialize the view based on toggle state
     initializeView();
-}); 
+
+    // Make project cards clickable on mobile
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.project-card').forEach(card => {
+            const links = card.querySelectorAll('a');
+            const primaryLink = links.length > 0 ? links[0].href : null;
+            
+            if (primaryLink) {
+                card.addEventListener('click', function(e) {
+                    // Only navigate if the click wasn't on a link or button
+                    if (!e.target.closest('a') && !e.target.closest('button')) {
+                        window.open(primaryLink, '_blank');
+                    }
+                });
+            }
+        });
+    }
+});
