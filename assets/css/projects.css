@@ -233,11 +233,79 @@ body {
 
 /* Make skill tags pop against the gradient */
 .skill-tag {
-    background: rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.skill-tag.frontend {
+    background: linear-gradient(135deg, #61dafb 0%, #00b4d8 100%);
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.backend {
+    background: linear-gradient(135deg, #764abc 0%, #9b51e0 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.nodejs {
+    background: linear-gradient(135deg, #68a063 0%, #3c873a 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.firebase {
+    background: linear-gradient(135deg, #ffca28 0%, #f57c00 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.netlify {
+    background: linear-gradient(135deg, #00c7b7 0%, #04a699 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.webdev {
+    background: linear-gradient(135deg, #e34f26 0%, #ff6b6b 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.uiux {
+    background: linear-gradient(135deg, #ff4081 0%, #ff79b0 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.cybersecurity {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.vulnerability {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.portscanning {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-tag.networksecurity {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .profile-card {
@@ -1117,7 +1185,7 @@ input:checked + .toggle-slider:before {
 }
 
 .item .project-skill-tag {
-    background: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     padding: 0.3rem 0.6rem;
     border-radius: 20px;
@@ -1135,7 +1203,7 @@ input:checked + .toggle-slider:before {
 }
 
 .item .project-button {
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 0.5rem 1rem;
@@ -1149,7 +1217,7 @@ input:checked + .toggle-slider:before {
 }
 
 .item .project-button:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
@@ -2638,357 +2706,10 @@ input:checked + .toggle-slider:before {
     }
 
     .item {
-        min-height: 200px;
-    }
-
-    .item:hover .project-content {
-        transform: none;
-    }
-
-    .project-icon {
-        margin-bottom: 10px;
-    }
-
-    .project-content h3 {
-        margin: 10px 0;
-        font-size: 1.1rem;
-    }
-
-    .project-content p {
-        margin: 0 0 15px 0;
-        font-size: 0.9rem;
-    }
-}
-
-/* Add smaller screen adjustments */
-@media (max-width: 480px) {
-    .profile-info h1 {
-        font-size: 1.5rem;
-    }
-
-    .profile-info .title {
-        font-size: 0.9rem;
-    }
-
-    .section h3 {
-        font-size: 1.1rem;
-    }
-
-    .project-content p {
-        font-size: 0.8rem;
-    }
-
-    .project-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .project-button {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-.toggle-button {
-    background-color: #4CAF50; /* Match your theme color */
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.toggle-button:hover {
-    background-color: #45a049; /* Slightly darker shade for hover */
-    transform: translateY(-2px); /* Lift effect on hover */
-}
-
-.toggle-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5); /* Focus ring */
-}
-
-.toggle-sections-button {
-    position: fixed;
-    top: calc(1rem + 50px); /* Moved down 50px from original position */
-    right: 1rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-    color: black;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.toggle-sections-button:hover {
-    transform: scale(1.05);
-}
-
-.toggle-sections-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.toggle-sections-button i {
-    font-size: 1.2rem;
-}
-
-.section-content {
-    display: block; /* Default to visible */
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-}
-
-/* Pulsating text animation */
-@keyframes textPulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.pulsating-text {
-    animation: textPulse 2s ease-in-out infinite;
-    animation-delay: calc(var(--animation-order, 0) * 0.2s); /* Add delay based on position */
-}
-
-/* Add animation order to skill tags */
-.skills-list .skill-tag:nth-child(1) { --animation-order: 0; }
-.skills-list .skill-tag:nth-child(2) { --animation-order: 1; }
-.skills-list .skill-tag:nth-child(3) { --animation-order: 2; }
-.skills-list .skill-tag:nth-child(4) { --animation-order: 3; }
-.skills-list .skill-tag:nth-child(5) { --animation-order: 4; }
-.skills-list .skill-tag:nth-child(6) { --animation-order: 5; }
-.skills-list .skill-tag:nth-child(7) { --animation-order: 6; }
-.skills-list .skill-tag:nth-child(8) { --animation-order: 7; }
-.skills-list .skill-tag:nth-child(9) { --animation-order: 8; }
-.skills-list .skill-tag:nth-child(10) { --animation-order: 9; }
-.skills-list .skill-tag:nth-child(11) { --animation-order: 10; }
-
-/* Remove any button text overlays */
-button::before,
-button::after {
-    content: none !important;
-}
-
-/* Ensure button text is clean */
-button {
-    font-size: inherit;
-    text-transform: none;
-}
-
-/* Specifically target any custom attributes that might add text */
-[data-content],
-[data-text] {
-    display: none;
-}
-
-/* Target specific button classes that might contain the inscription */
-.form-submit-button::before,
-.submit-button::before,
-.contact-form button::before,
-#sendButton::before,
-.emailjs-button::before,
-button[type="submit"]::before {
-    content: none !important;
-    display: none !important;
-}
-
-/* Remove any potential overlays */
-.form-submit-button,
-.submit-button,
-.contact-form button,
-#sendButton,
-.emailjs-button,
-button[type="submit"] {
-    position: relative;
-}
-
-.form-submit-button *,
-.submit-button *,
-.contact-form button *,
-#sendButton *,
-.emailjs-button *,
-button[type="submit"] * {
-    display: none !important;
-}
-
-/* Ensure no text decoration or additional content */
-button {
-    text-decoration: none !important;
-    position: relative;
-}
-
-button::before,
-button::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* Reset button content display */
-.form-submit-button,
-.submit-button,
-.contact-form button,
-#sendButton,
-.emailjs-button,
-button[type="submit"] {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Remove unwanted overlays but keep intended content */
-.form-submit-button::before,
-.submit-button::before,
-.contact-form button::before,
-#sendButton::before,
-.emailjs-button::before,
-button[type="submit"]::before {
-    content: none !important;
-}
-
-/* Style the button text */
-button[type="submit"] {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-}
-
-/* Allow button content to be visible */
-button[type="submit"]::after {
-    content: "Send Message";
-    display: inline-block !important;
-}
-
-/* Keep hover effect for desktop */
-@media (min-width: 769px) {
-    .project-card .project-content {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-/* Add specific styles for each skill tag */
-.skill-tag.frontend {
-    background-color: #61dafb; /* React color */
-    color: #fff;
-}
-
-.skill-tag.backend {
-    background-color: #f0db4f; /* JavaScript color */
-    color: #323330;
-}
-
-.skill-tag.nodejs {
-    background-color: #68a063; /* Node.js color */
-    color: #fff;
-}
-
-.skill-tag.firebase {
-    background-color: #ffca28; /* Firebase color */
-    color: #fff;
-}
-
-.skill-tag.netlify {
-    background-color: #00c7b7; /* Netlify color */
-    color: #fff;
-}
-
-.skill-tag.webdev {
-    background-color: #e34f26; /* HTML/CSS color */
-    color: #fff;
-}
-
-.skill-tag.uiux {
-    background-color: #ff4081; /* UI/UX color */
-    color: #fff;
-}
-
-.skill-tag.cybersecurity {
-    background-color: #2ecc71; /* Cybersecurity color */
-    color: #fff;
-}
-
-.skill-tag.vulnerability {
-    background-color: #e74c3c; /* Vulnerability Assessment color */
-    color: #fff;
-}
-
-.skill-tag.portscanning {
-    background-color: #3498db; /* Port Scanning color */
-    color: #fff;
-}
-
-.skill-tag.networksecurity {
-    background-color: #9b59b6; /* Network Security color */
-    color: #fff;
-}
-
-/* Example of adding a logo as a background image */
-.skill-tag.react {
-    background-image: url('path/to/react-logo.png');
-    background-size: cover;
-    color: transparent; /* Hide text if using a logo */
-}
-
-/* Loading spinner styles */
-.loading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 15px;
-}
-
-.loading-text {
-    color: #666;
-    font-size: 1.1rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@media (max-width: 480px) {
-    .project-content {
-        padding: 10px;
-        font-size: 14px;
-    }
-    .item {
         width: 100%;
         margin-bottom: 20px;
     }
+
     .social-links a {
         font-size: 12px;
     }
@@ -3259,5 +2980,116 @@ button[type="submit"]::after {
     
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+
+    .profile-section {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 1rem;
+    }
+
+    .projects-section {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+
+    .profile-card {
+        margin-bottom: 1rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .skills-list {
+        gap: 0.5rem;
+    }
+
+    .skill-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.8rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .project-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .social-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .section h3 {
+        font-size: 1.2rem;
+    }
+
+    .skill-tag {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .project-card-content {
+        padding: 0.8rem;
+    }
+
+    .project-card-title {
+        font-size: 1.1rem;
+    }
+
+    .project-card-description {
+        font-size: 0.9rem;
+    }
+
+    .project-card-tag {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
     }
 }
