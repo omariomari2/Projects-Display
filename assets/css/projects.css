@@ -548,6 +548,66 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.1) 0%, rgba(22, 33, 62, 0.1) 50%, rgba(15, 52, 96, 0.1) 100%);
+    z-index: 0;
+    background-size: contain;
+}
+
+/* Web Security Tool */
+.project-slide:nth-child(1) {
+    background-image: url('../project_images/wvscanner.jpg');
+}
+
+/* Church Website */
+.project-slide:nth-child(2) {
+    background-image: url('../project_images/church_website.png');
+}
+
+/* Pomodoro Play */
+.project-slide:nth-child(3) {
+    background-image: url('../project_images/pomodoro.png');
+}
+
+/* Portfolio Website */
+.project-slide:nth-child(4) {
+    background-image: url('../project_images/portfolio.png');
+}
+
+/* Research Team Platform */
+.project-slide:nth-child(5) {
+    background-image: url('../project_images/research_team.png');
+}
+
+/* Collaboration Opportunities */
+.project-slide:nth-child(6) {
+    background-image: url('../project_images/collaborate.jpeg');
+}
+
+/* Research Team Landing Page */
+.project-slide:nth-child(7) {
+    background-image: url('../project_images/research_team.png');
+}
+
+/* Ghanaian History Timeline */
+.project-slide:nth-child(8) {
+    background-image: url('../project_images/ghana_history.jpg');
+}
+
+/* Typing Speed Game */
+.project-slide:nth-child(9) {
+    background-image: url('../project_images/words per minute.png');
 }
 
 .project-slide.active {
@@ -890,13 +950,15 @@ input:checked + .toggle-slider:before {
 }
 
 .project-content {
-    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     padding: 2.5rem;
     border-radius: 1rem;
     max-width: 800px;
     width: 100%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
 }
@@ -2934,39 +2996,39 @@ button[type="submit"]::after {
 
 /* Individual project slide backgrounds */
 .project-slide:nth-child(1) {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background-image: url('../project_images/wvscanner.jpg');
 }
 
 .project-slide:nth-child(2) {
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background-image: url('../project_images/church_website.png');
 }
 
 .project-slide:nth-child(3) {
-    background: linear-gradient(135deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%);
+    background-image: url('../project_images/pomodoro.png');
 }
 
 .project-slide:nth-child(4) {
-    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+    background-image: url('../project_images/portfolio.png');
 }
 
 .project-slide:nth-child(5) {
-    background: linear-gradient(135deg, #200122 0%, #6f0000 100%);
+    background-image: url('../project_images/research_team.png');
 }
 
 .project-slide:nth-child(6) {
-    background: linear-gradient(135deg, #0b8793 0%, #360033 100%);
+    background-image: url('../project_images/collaborate.jpeg');
 }
 
 .project-slide:nth-child(7) {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background-image: url('../project_images/research_team.png');
 }
 
 .project-slide:nth-child(8) {
-    background: linear-gradient(135deg, #603813 0%, #b29f94 100%);
+    background-image: url('../project_images/ghana_history.jpg');
 }
 
 .project-slide:nth-child(9) {
-    background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    background-image: url('../project_images/words per minute.png');
 }
 
 /* Responsive styles for project numbers */
