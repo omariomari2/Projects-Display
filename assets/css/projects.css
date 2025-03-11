@@ -3372,17 +3372,35 @@ button[type="submit"]::after {
         padding: 15px;
     }
 
-    /* Fix view toggle positioning */
+    /* Hide view toggle on mobile */
     .view-toggle {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 10px auto;
-        width: 90%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10;
+        display: none;
+    }
+
+    /* Mobile message for better showcase */
+    .mobile-showcase-message {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 0.9rem;
+        max-width: 90%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-showcase-message i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #4facfe;
+        display: block;
+    }
+
+    .mobile-showcase-message p {
+        margin: 10px 0 0;
+        line-height: 1.5;
     }
 
     /* Project showcase adjustments */
@@ -3481,5 +3499,38 @@ button[type="submit"]::after {
     .profile-section, 
     .projects-section {
         height: -webkit-fill-available;
+    }
+}
+
+/* Mobile showcase message - hidden by default on larger screens */
+.mobile-showcase-message {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-showcase-message i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #4facfe;
+    display: block;
+}
+
+.mobile-showcase-message p {
+    margin: 10px 0 0;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for mobile showcase message */
+@media (max-width: 768px) {
+    .mobile-showcase-message {
+        display: block;
     }
 }
