@@ -93,7 +93,8 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 200px !important;
+    height: 170px !important;
+    margin-bottom: 0 !important;
 }
 
 /* Remove problematic CSS */
@@ -105,11 +106,12 @@
 
 /* Fix sound wave animation */
 .sound-wave div {
-    width: 12px !important;
-    height: 30px !important;
+    width: 20px !important;
+    height: 50px !important;
     background: black !important;
     border-radius: 6px !important;
-    animation: audio-wave 2.5s infinite ease-in-out !important;
+    animation: audio-wave 1.5s infinite ease-in-out !important;
+    animation-delay: 2s !important;
 }
 
 /* Updated audio wave animation */
@@ -637,6 +639,32 @@ body, html {
     color: #000000 !important;
     display: inline-block;
     width: fit-content;
+    position: relative !important;
+}
+
+/* Add underline animation on hover */
+.typewriter:hover {
+    animation: none !important; /* Stop the typing animation when hovering */
+    border-right: none !important;
+    width: 100% !important;
+}
+
+.typewriter::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    right: 0; /* Start from right side */
+    background-color: #000000;
+    transition: width 0.5s ease;
+    transform-origin: right;
+}
+
+.typewriter:hover::after {
+    width: 100%; /* Expand to full width */
+    left: 0;
+    right: auto;
 }
 
 @keyframes typing {
@@ -659,4 +687,29 @@ body, html {
     justify-content: center;
     text-align: center;
     width: 100%;
+}
+
+/* Skills section styling */
+.skills-category {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    margin: 0 0 15px 0 !important;
+    text-align: center !important;
+}
+
+.skills-category-section {
+    margin-bottom: 20px !important;
+}
+
+.skills-subcategory {
+    color: #e6e6e6 !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    margin: 0 0 10px 0 !important;
+    text-decoration: underline !important;
+}
+
+.skills-list {
+    margin-bottom: 15px !important;
 } 

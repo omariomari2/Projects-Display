@@ -149,6 +149,7 @@ body {
 .project-showcase {
     background: linear-gradient(135deg, #43cea2, #185a9d) !important;
     min-height: 100vh;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -207,7 +208,7 @@ body {
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 3px;
+    height: 5px;
     bottom: 0;
     left: 0;
     background: linear-gradient(
@@ -222,11 +223,34 @@ body {
     transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
+.profile-info h2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        to right,
+        #ff6b6b,
+        #4ecdc4,
+        #45b7d1,
+        #96c93d,
+        #e056fd
+    );
+    transform-origin: bottom left;
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
 .profile-info h1:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
+.profile-info h2:hover::after {
+    transform: scaleX(1);
+    transform-origin: right;
+}
 .profile-info .title {
     color: #ffffff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
