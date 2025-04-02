@@ -1,0 +1,194 @@
+/* Mobile Responsiveness Fixes */
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .main-container, 
+    .profile-section, 
+    .projects-section {
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Enhanced responsive design for mobile devices */
+@media (max-width: 768px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+
+    .profile-section,
+    .projects-section {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        overflow-y: visible;
+        padding: 15px;
+    }
+    
+    .sound {
+        width: 140px;
+        height: 140px;
+        padding: 15px;
+    }
+
+    .all-projects-view .project-card:hover {
+        transform: scale(1.2) !important; /* Override desktop scale value */
+        z-index: 100; /* Ensure it appears above other elements */
+        transition: transform 0.2s ease; /* Faster transition for better mobile experience */
+    }
+    
+    /* Adjust project showcase content */
+    .project-content {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    /* Project navigation buttons */
+    .nav-buttons {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000; /* Increase z-index to ensure buttons are always clickable */
+        display: flex;
+        gap: 15px;
+    }
+    
+    .nav-button {
+        width: 45px;
+        height: 45px;
+        opacity: 0.9;
+    }
+    
+    /* Fix project numbers position */
+    .project-numbers {
+        bottom: 15px;
+        right: 15px;
+        gap: 5px;
+        z-index: 1000; /* Increase z-index to ensure numbers are always clickable */
+    }
+    
+    /* Make project cards more visible and accessible */
+    .all-projects-view .project-card {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Adjust spacing for project cards */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+        padding: 15px;
+        grid-gap: 30px;
+    }
+    
+    /* Improve project card readability */
+    .project-card-content {
+        padding: 20px;
+    }
+    
+    .project-card-title {
+        font-size: 1.3rem;
+    }
+    
+    .project-card-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Fix toggle position */
+    .view-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin: 15px auto;
+        padding: 0 15px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    
+    /* Fix conflicting visibility of project buttons */
+    .project-buttons {
+        display: flex !important; /* Override the 'display: none' in projects.css */
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .sound {
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+    }
+    
+    .sound-wave div {
+        width: 6px;
+    }
+    
+    .all-projects-view .project-card:hover {
+        transform: scale(1.1) !important; /* Even smaller scale for very small screens */
+    }
+    
+    .project-content {
+        padding: 15px;
+    }
+    
+    .project-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-content p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .project-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+    
+    /* Improve touch targets */
+    .social-links a, 
+    .project-card-button,
+    .project-number,
+    .nav-button {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better spacing for project numbers */
+    .project-numbers {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .project-number {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Further reduce scaling for very small screens */
+    .project-card:hover {
+        transform: scale(1.1) !important;
+    }
+} 

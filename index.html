@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#1a1a2e">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <link rel="stylesheet" href="assets/css/projects.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    <link rel="stylesheet" href="assets/css/showcase-fixes.css">
+    <link rel="stylesheet" href="assets/css/profile-improvements.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fix-styles.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="assets/js/projects.js"></script>
+    <script src="assets/js/showcase-fixes.js"></script>
     <title>My Projects Display</title>
 </head>
 <body>
@@ -20,12 +27,21 @@
                 <div class="profile-card">
                     <div class="profile-header">
                         <div class="profile-image">
-                            <img src="assets/images/profile.JPG" alt="African Mask Profile" class="profile-mask">
+                            <div class="sound">
+                                <div class="sound-wave">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="profile-info">
                         <h1>Bright Omari Owusu</h1>
+                        <h2>SWE || Cloud Security</h2>
                         <p class="title">Student/Cybersecurity & Software Engineer</p>
                         
                         <div class="social-links">
@@ -53,156 +69,160 @@
                     </div>
 
                     <div class="profile-sections">
-                        <div class="section active" id="about">
-                            <h3>About me</h3>
-                            <p>I am a dedicated Cybersecurity student at Grambling State University with a strong passion for securing web data and integrating software engineering principles into cybersecurity solutions. 
-                               <br>With proficiency in Python and JavaScript, I actively work on projects that enhance my technical expertise. 
-                            <br><br>I have a strong affinity for web development, and I achieve excellent work done using TailwindCSS, Figma, and React!.
-                            <br><br>I also enjoy 3d rendering using Three.Js . Currently, I am seeking research, internships and other opportunities that will broaden my knowledge and professional network!. 
-                            <br><br>My long term goal however is to leverage my skills to create innovative cybersecurity solutions while mentoring and supporting underprivileged individuals in tech.</p>
-                        </div>
-
                         <div class="section" id="contributions">
-                            <h3>Further Education</h3>
-                            <div class="contribution-item">
-                                <h4>Full Stack Open</h4>
-                                <h4>University of Helsinki - Online</h4>
-                                <p class="duration">January 2025 - March 2025</p>
-                                <p class="duration">Comprehensive online program covering modern web application development with JavaScript.<br>
-                                    Relevant Coursework: React
-                                    <br>Node.js
-                                    <br>MongoDB
-                                    <br>GraphQL
-                                    <br>TypeScript 
-                                </p>
-                            </div>
-                            <div class="contribution-item">
-                                <h4>Cybersecurity Training</h4>
-                                <h4>Cybrary — Online</h4>
-                                <p class="duration">February 2025 - Present</p>
-                                <p class="duration">Specialized training in cybersecurity concepts and practical applications.<br>
-                                    Relevant Coursework: Core Cybersecurity Concepts<br>
-                                    Interactive Labs<br>
-                                    Certification Preparation<br>
-                                    Virtual Labs and Assessments</p>
+                            <h3 class="section-header">Further Education <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                            <div class="section-content">
+                                <div class="contribution-item">
+                                    <h4>Cybersecurity Defense Strategy/Policy</h4>
+                                    <h4>Grambling State University - BS</h4>
+                                    <p class="duration">Aug 2024 - May 2028</p>
+                                </div>
+                                <div class="contribution-item">
+                                    <h4>Full Stack Open</h4>
+                                    <h4>University of Helsinki - Online</h4>
+                                    <p class="duration">January 2025 - March 2025</p>
+                                    <p class="duration">Comprehensive online program covering modern web application development with JavaScript.<br>
+                                        Relevant Coursework: React
+                                        <br>Node.js
+                                        <br>MongoDB
+                                        <br>GraphQL
+                                        <br>TypeScript 
+                                    </p>
+                                </div>
+                                <div class="contribution-item">
+                                    <h4>Cybersecurity Training</h4>
+                                    <h4>Cybrary — Online</h4>
+                                    <p class="duration">February 2025 - Present</p>
+                                    <p class="duration">Specialized training in cybersecurity concepts and practical applications.<br>
+                                        Relevant Coursework: Core Cybersecurity Concepts<br>
+                                        Interactive Labs<br>
+                                        Certification Preparation<br>
+                                        Virtual Labs and Assessments</p>
+                                </div>
+                                <div class="contribution-item">
+                                    <h4>AWS Cloud Foundations</h4>
+                                    <h4>AWS Academy</h4>
+                                    <p class="duration">April 2024</p>
+                                    <p class="duration">Comprehensive training in AWS cloud services and architecture.<br>
+                                        Key Skills: EC2 Instance Management<br>
+                                        S3 Storage Solutions<br>
+                                        VPC Network Configuration<br>
+                                        IAM Security & Access Control<br>
+                                        Cloud Security Best Practices<br>
+                                        AWS CLI & SDK Implementation</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="section" id="skills">
-                            <h3>Skills</h3>
-                            <div class="skills-list">
-                                <span class="skill-tag frontend">FrontEnd/CSS/React</span>
-                                <span class="skill-tag backend">Backend/Python/JS</span>
-                                <span class="skill-tag nodejs">Node.js/Express.js</span>
-                                <span class="skill-tag uiux">Figma</span>
-                                <span class="skill-tag firebase">Firebase</span>
-                                <span class="skill-tag netlify">Netlify</span>
-                                <span class="skill-tag webdev">Web Development</span>
-                                <span class="skill-tag uiux">UI/UX Design</span>
-                                <span class="skill-tag cybersecurity">Cybersecurity</span>
-                                <span class="skill-tag vulnerability">Vulnerability Assessment</span>
-                                <span class="skill-tag portscanning">Port Scanning</span>
-                                <span class="skill-tag networksecurity">Network Security</span>
+                            <h3 class="section-header">Skills <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                            <div class="section-content">
+                                <div class="skills-list">
+                                    <span class="skill-tag frontend">FrontEnd/CSS/React</span>
+                                    <span class="skill-tag backend">Backend/Python/JS</span>
+                                    <span class="skill-tag nodejs">Node.js/Express.js</span>
+                                    <span class="skill-tag uiux">Figma</span>
+                                    <span class="skill-tag firebase">Firebase</span>
+                                    <span class="skill-tag netlify">Netlify</span>
+                                    <span class="skill-tag webdev">Web Development</span>
+                                    <span class="skill-tag uiux">UI/UX Design</span>
+                                    <span class="skill-tag cybersecurity">Cybersecurity</span>
+                                    <span class="skill-tag vulnerability">Vulnerability Assessment</span>
+                                    <span class="skill-tag portscanning">Port Scanning</span>
+                                    <span class="skill-tag networksecurity">Network Security</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="section" id="experience">
-                            <h3>Experience</h3>
-                            <div class="experience-item">
-                                <h4>Cybersecurity Intern</h4>
-                                <p class="company">Citizens Bank, Nsawam</p>
-                                <p class="duration">Jan 2024 – Mar 2024</p>
-                                <ul>
-                                    <li>Assisted the Chief Information Security Officer (CISO) in maintaining and strengthening the organization's security posture, contributing to vulnerability assessments and incident reporting.</li>
-                                    <li>Supported data encryption and integrity tasks, helping safeguard sensitive customer information and maintain compliance with security standards.</li>
-                                    <li>Identified, tested, and reported vulnerabilities on internal banking platforms to mitigate cyber risks.</li>
-                                </ul>
-                            </div>
-                            <div class="experience-item">
-                                <h4>Assistant Tutor & Online Coordinator — Backend API Team</h4>
-                                <p class="company">MIGY Consult</p>
-                                <p class="duration">Feb 2023 – May 2023</p>
-                                <ul>
-                                    <li>Coordinated and facilitated online learning sessions while contributing to backend API development, ensuring efficient server-side functionality and integration.</li>
-                                    <li>Worked collaboratively with a cross-functional team of 5 developers to build and optimize backend APIs, ensuring seamless integration with frontend components.</li>
-                                </ul>
+                            <h3 class="section-header">Experience <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                            <div class="section-content">
+                                <div class="experience-item">
+                                    <h4>Junior Intern</h4>
+                                    <p class="company">Citizens Bank, Nsawam</p>
+                                    <p class="duration">Jan 2024 – Mar 2024</p>
+                                    <ul>
+                                        <li>Assisted the Chief Information Security Officer (CISO) in maintaining and strengthening the organization's security posture, contributing to vulnerability assessments and incident reporting.</li>
+                                        <li>Identified, tested, and reported vulnerabilities on internal banking platforms to mitigate cyber risks.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="experience-item">
+                                    <h4>Assistant Tutor & Online Coordinator</h4>
+                                    <p class="company">IT Team, MIGY Consult</p>
+                                    <p class="duration">Feb 2023 – May 2023</p>
+                                    <ul>
+                                        <li>Assisted in troubleshooting technical issues for students, providing step-by-step guidance and enhancing their understanding of IT concepts.</li>
+                                        <li>Collaborated with IT team members to identify and implement improvements to the tutoring platform.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="experience-item">
+                                    <h4>IT Support Volunteer</h4>
+                                    <p class="company">National Health Insurance Scheme</p>
+                                    <p class="duration">Nov 2022 – Feb 2023</p>
+                                    <ul>
+                                        <li>Supported staff in gathering and inputting and managing detailed client information within a secure database, ensuring accuracy and confidentiality.</li>
+                                        <li>Collaborated with the IT team to design and develop a user-friendly website for efficient client data logging and management.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="section" id="contributions">
-                            <h3>Further Education</h3>
-                            <div class="contribution-item">
-                                <h4>Full Stack Open</h4>
-                                <h4>University of Helsinki - Online</h4>
-                                <p class="duration">January 2025 - March 2025</p>
-                                <p class="duration">Comprehensive online program covering modern web application development with JavaScript.<br>
-                                    Relevant Coursework: React
-                                    <br>Node.js
-                                    <br>MongoDB
-                                    <br>GraphQL
-                                    <br>TypeScript 
-                                </p>
-                            </div>
-                            <div class="contribution-item">
-                                <h4>Cybersecurity Training</h4>
-                                <h4>Cybrary — Online</h4>
-                                <p class="duration">February 2025 - Present</p>
-                                <p class="duration">Specialized training in cybersecurity concepts and practical applications.<br>
-                                    Relevant Coursework: Core Cybersecurity Concepts<br>
-                                    Interactive Labs<br>
-                                    Certification Preparation<br>
-                                    Virtual Labs and Assessments</p>
-                            </div>
-                        </div>
-
-                        <div class="section" id="contributions">
-                            <h3>Contributions</h3>
-                            <div class="contribution-item">
-                                <h4>Tech Other Side Research Team</h4>
-                                <p class="duration">Fall 2024 – Present</p>
-                            </div>
-                            <div class="contribution-item">
-                                <h4>ColorStack Grambling Division</h4>
-                                <p class="duration">Spring 2025 - Present</p>
+                        <div class="section" id="contributions-section">
+                            <h3 class="section-header">Contributions <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                            <div class="section-content">
+                                <div class="contribution-item">
+                                    <h4>Tech Research Team Member</h4>
+                                    <h4>Other Side Research Team</h4>
+                                    <p class="duration">Jan 2025 - Present</p>
+                                    <p>Contributed to research on developing a remote employee monitoring solution that balances legal, well-being, and productivity needs for both employees and employers.</p>
+                                </div>
+                                <div class="contribution-item">
+                                    <h4>ColorStack Grambling Division</h4>
+                                    <p class="duration">Spring 2025 - Present</p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="section" id="contact">
-                            <h3>Contact Me</h3>
-                            <form class="contact-form" id="contact-form" onsubmit="return sendEmail(event)">
-                                <div class="form-group">
-                                    <input type="text" name="name" id="name" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <select name="inquiry_type" id="inquiry_type" required>
-                                        <option value="" disabled selected>Type of Inquiry</option>
-                                        <option value="general">General Question</option>
-                                        <option value="collaboration">Collaboration</option>
-                                        <option value="opportunity">Job Opportunity</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="company" id="company" placeholder="Company Name (Optional)">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" id="message" placeholder="Your Message" required></textarea>
-                                </div>
-                                <button type="submit" class="submit-btn">
-                                    <span class="default-text">Send Message</span>
-                                    <span class="loading-text">Sending...</span>
-                                </button>
-                            </form>
+                            <h3 class="section-header">Contact Me <i class="fas fa-chevron-down toggle-icon"></i></h3>
+                            <div class="section-content">
+                                <form class="contact-form" id="contact-form" onsubmit="return sendEmail(event)">
+                                    <div class="form-group">
+                                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="inquiry_type" id="inquiry_type" required>
+                                            <option value="" disabled selected>Type of Inquiry</option>
+                                            <option value="general">General Question</option>
+                                            <option value="collaboration">Collaboration</option>
+                                            <option value="opportunity">Job Opportunity</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="company" id="company" placeholder="Company Name (Optional)">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+                                    </div>
+                                    <button type="submit" class="submit-btn">
+                                        <span class="default-text">Send Message</span>
+                                        <span class="loading-text">Sending...</span>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="projects-section">
-            <div class="view-toggle">
+        <section class="projects-section" id="projectsSection">
+            <div class="view-toggle" id="projectViewToggle">
                 <span class="toggle-label">All Projects</span>
                 <label class="toggle-switch">
                     <input type="checkbox" id="viewToggle">
@@ -501,15 +521,6 @@
                     </div>
                 </div>
 
-                <div class="nav-buttons">
-                    <button class="nav-button prev-button">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="nav-button next-button">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
                 <div class="project-numbers">
                     <div class="project-number active">1</div>
                     <div class="project-number">2</div>
@@ -520,6 +531,14 @@
                     <div class="project-number">7</div>
                     <div class="project-number">8</div>
                     <div class="project-number">9</div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-button prev-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-button next-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
             
@@ -563,7 +582,7 @@
                                 </div>
                                 <h3 class="project-card-title">Visa Appointment Extension</h3>
                             </div>
-                            <p class="project-card-description">Created a Chrome extension used by 10+ users to secure timely visa appointments. Integrated real-time data fetching from external APIs to deliver up-to-date information, improving user decision making and efficiency.</p>
+                            <p class="project-card-description">Currently developing a Chrome extension to secure timely visa appointments with real-time data fetching from external APIs to deliver up-to-date information, improving user decision making and efficiency.</p>
                             <div class="project-card-tags">
                                 <span class="project-card-tag">HTML/CSS</span>
                                 <span class="project-card-tag">JavaScript</span>
@@ -900,5 +919,11 @@
         });
     </script>
     <script src="assets/js/toggleSections.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/showcase-fixes.js"></script>
+    <script src="assets/js/animation-init.js"></script>
 </body>
 </html>

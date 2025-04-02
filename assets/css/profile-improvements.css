@@ -1,0 +1,271 @@
+/* Profile Section Improvements */
+
+/* Basic profile section styling */
+.profile-section {
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(135deg, #4158D0, #C850C0) !important; 
+    font-family: 'Raleway', 'Poppins', sans-serif !important;
+}
+
+/* Basic profile card appearance */
+.profile-card {
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Profile header layout */
+.profile-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+}
+
+/* New sound animation styles */
+.sound {
+    background-color: transparent ;
+    font-size: 12px ;
+    transition: all 0.5s ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    height: 200px ;
+}
+
+.sound-wave {
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    gap: 8px ;
+    height: 100% ;
+}
+
+.sound-wave div {
+    width: 12px ;
+    height: 20px ;
+    background: rgba(255, 255, 255, 0.6) ;
+    border-radius: 6px ;
+    animation: audio-wave 1s infinite ease-in-out ;
+}
+
+/* Sound wave animation colors */
+.sound-wave div:nth-child(1) {
+    --animation-color-1: #ff6b6b;
+    --animation-color-2: #ff8e8e;
+    --animation-color-3: #ff9d6b;
+    --animation-color-4: #ffbe6b;
+    animation-delay: 0.2s !important;
+}
+
+.sound-wave div:nth-child(2) {
+    --animation-color-1: #4ecdc4;
+    --animation-color-2: #65dfd7;
+    --animation-color-3: #45b7d1;
+    --animation-color-4: #76e5dd;
+    animation-delay: 0.4s !important;
+}
+
+.sound-wave div:nth-child(3) {
+    --animation-color-1: #6a5acd;
+    --animation-color-2: #836fff;
+    --animation-color-3: #9370db;
+    --animation-color-4: #7b68ee;
+    animation-delay: 0.6s !important;
+}
+
+.sound-wave div:nth-child(4) {
+    --animation-color-1: #96c93d;
+    --animation-color-2: #aadf44;
+    --animation-color-3: #bbed54;
+    --animation-color-4: #ccff66;
+    animation-delay: 0.8s !important;
+}
+
+.sound-wave div:nth-child(5) {
+    --animation-color-1: #e056fd;
+    --animation-color-2: #ea7cfe;
+    --animation-color-3: #f591ff;
+    --animation-color-4: #ffa9ff;
+    animation-delay: 1s !important;
+}
+
+/* Updated audio wave animation keyframes */
+@keyframes audio-wave {
+    0% { height: 20px; transform: translate(0px); background-color: var(--animation-color-1, #333333); }
+    25% { height: 65px; transform: translateY(-5px); background-color: var(--animation-color-2, #666666); }
+    50% { height: 20px; transform: translateY(0px); background-color: var(--animation-color-3, #999999); }
+    100% { height: 0px; transform: translateY(0px); background-color: var(--animation-color-4, #cccccc); }
+}
+
+/* Basic profile text styling */
+.profile-info h1 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin: 15px 0 5px !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.profile-info .title {
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-align: center !important;
+    margin: 5px 0 15px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Basic section headings */
+.section h3 {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 20px 0 15px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Basic paragraph text */
+.section p, .experience-item p, .contribution-item p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    margin-bottom: 15px !important;
+}
+
+/* Basic skills tags */
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 30px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    margin: 0.3rem !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Basic social links */
+.social-links {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin: 20px 0 !important;
+}
+
+.social-links a {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Basic experience and contribution items */
+.experience-item, .contribution-item {
+    margin-bottom: 20px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.experience-item h4, .contribution-item h4 {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin-bottom: 5px !important;
+}
+
+.experience-item .company, .contribution-item .company {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-bottom: 5px !important;
+}
+
+.experience-item .duration, .contribution-item .duration {
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-bottom: 10px !important;
+    font-style: italic !important;
+}
+
+/* Basic mobile responsive styles */
+@media (max-width: 768px) {
+    .profile-card {
+        max-width: 100% !important;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .profile-info .title {
+        font-size: 1rem !important;
+    }
+    
+    .section h3 {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section {
+        padding: 15px !important;
+    }
+    
+    .profile-card {
+        padding: 15px !important;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.6rem !important;
+    }
+    
+    .profile-info .title {
+        font-size: 0.9rem !important;
+    }
+    
+    .section h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .section p, .experience-item p, .contribution-item p {
+        font-size: 0.95rem !important;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+} 

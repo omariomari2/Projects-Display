@@ -1,0 +1,608 @@
+/* 
+ * Fix styles - Overrides problematic changes 
+ */
+
+/* Reset card animations */
+.project-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Project card background colors */
+.all-projects-view .project-card:nth-child(1) { background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%) !important; }
+.all-projects-view .project-card:nth-child(2) { background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%) !important; }
+.all-projects-view .project-card:nth-child(3) { background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%) !important; }
+.all-projects-view .project-card:nth-child(4) { background: linear-gradient(135deg, #f57c00 0%, #e65100 100%) !important; }
+.all-projects-view .project-card:nth-child(5) { background: linear-gradient(135deg, #6a1b9a 0%, #4a148c 100%) !important; }
+.all-projects-view .project-card:nth-child(6) { background: linear-gradient(135deg, #0277bd 0%, #01579b 100%) !important; }
+.all-projects-view .project-card:nth-child(7) { background: linear-gradient(135deg, #d84315 0%, #bf360c 100%) !important; }
+.all-projects-view .project-card:nth-child(8) { background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%) !important; }
+.all-projects-view .project-card:nth-child(9) { background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%) !important; }
+
+/* Remove hover effects from projects in all-projects-view */
+.all-projects-view .project-card {
+    transform: none !important;
+    transition: none !important;
+}
+
+.all-projects-view .project-card:hover {
+    transform: none !important;
+    cursor: default !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Keep hover effects for other elements */
+.project-card:hover {
+    transform: scale(1.05) !important;
+    cursor: pointer !important;
+}
+
+/* Fix project hover in mobile */
+@media (max-width: 768px) {
+    .project-card:hover {
+        transform: translateY(-5px) !important;
+    }
+}
+
+/* Section background gradients */
+.projects-section {
+    background: linear-gradient(135deg, #43cea2, #185a9d) !important;
+    background-size: 400% 400% !important;
+    animation: gradient-animation 15s ease infinite !important;
+}
+
+.project-showcase {
+    background: linear-gradient(135deg, #43cea2, #185a9d) !important;
+    background-size: 400% 400% !important;
+    animation: gradient-animation 15s ease infinite !important;
+}
+
+.all-projects-view {
+    background: linear-gradient(135deg, #43cea2, #185a9d) !important;
+    background-size: 400% 400% !important;
+    animation: gradient-animation 15s ease infinite !important;
+}
+
+.profile-section {
+    display: block !important;
+    padding: 20px !important;
+    background: linear-gradient(135deg, #4158D0, #C850C0, #854D9E) !important;
+    background-size: 400% 400% !important;
+    animation: gradient-animation 15s ease infinite !important;
+    min-height: 100vh !important; /* Minimum height */
+    height: auto !important; /* Auto height to fit content */
+    overflow-y: auto !important; /* Independent scrolling */
+    box-sizing: border-box !important;
+    width: 30% !important; /* Width for profile section - adjusted to 30% */
+    flex-shrink: 0 !important; /* Prevent shrinking */
+}
+
+/* Add animation keyframes for gradients */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+/* New sound animation */
+.sound {
+    background-color: transparent !important;
+    font-size: 12px !important;
+    transition: all 0.5s !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 200px !important;
+}
+
+/* Remove problematic CSS */
+.project-tag::after,
+.project-buttons .btn::before,
+.profile-image::after {
+    display: none !important;
+}
+
+/* Fix sound wave animation */
+.sound-wave div {
+    width: 12px !important;
+    height: 20px !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    border-radius: 6px !important;
+    animation: audio-wave 2.5s infinite ease-in-out !important;
+}
+
+/* Updated audio wave animation */
+@keyframes audio-wave {
+    0% { height: 20px; transform: translate(0px); background-color: var(--animation-color-1, #333333); }
+    25% { height: 65px; transform: translateY(-5px); background-color: var(--animation-color-2, #666666); }
+    50% { height: 20px; transform: translateY(0px); background-color: var(--animation-color-3, #999999); }
+    100% { height: 0px; transform: translateY(0px); background-color: var(--animation-color-4, #cccccc); }
+}
+
+/* Fix profile section */
+.profile-card {
+    background: rgba(255, 255, 255, 0.85) !important; /* More opaque white background */
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+    margin: 0 auto !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    overflow: visible !important;
+    color: #000000 !important; /* Black text color */
+}
+
+/* Change all text in profile section to black */
+.profile-card p, 
+.profile-card li,
+.profile-card h4,
+.profile-card .title,
+.profile-info .title,
+.skill-tag,
+.experience-item,
+.contribution-item,
+.experience-item p,
+.contribution-item p {
+    color: #000000 !important;
+}
+
+/* Fix section headings */
+.section h3 {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    background: none !important;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Reset any custom scrollbars */
+::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Fix skills tags */
+.skill-tag {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px) !important;
+}
+
+/* Make sure buttons and links work */
+.project-buttons .btn:hover,
+.project-card-button:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Fix mobile view */
+@media (max-width: 768px) {
+    .profile-section {
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+    
+    .project-card {
+        transform: none !important;
+    }
+}
+
+/* Center the navigation buttons in the showcase */
+.nav-buttons {
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+.nav-button {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    pointer-events: auto !important;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: scale(1.1) !important;
+}
+
+.nav-button i {
+    color: white !important;
+    font-size: 1.2rem !important;
+}
+
+/* Project numbers centered at bottom - bigger size */
+.project-numbers {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 15px !important;
+    z-index: 5 !important;
+    width: 100% !important;
+}
+
+.project-number {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.project-number:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.1) !important;
+}
+
+.project-number.active {
+    width: 46px !important;
+    height: 46px !important;
+    background: white !important;
+    color: #185a9d !important;
+    font-weight: bold !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    font-size: 20px !important;
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+    .nav-buttons {
+        padding: 0 10px !important;
+    }
+    
+    .nav-button {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .nav-button i {
+        font-size: 1rem !important;
+    }
+    
+    /* Adjust project number size on mobile */
+    .project-number {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 16px !important;
+    }
+    
+    .project-number.active {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+    }
+    
+    .project-numbers {
+        gap: 10px !important;
+        bottom: 20px !important;
+    }
+}
+
+/* Collapsible section styles */
+.section-header {
+    cursor: pointer !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 15px !important;
+    margin: 0 !important; /* Remove margin to prevent spacing */
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.section-header:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease !important;
+    font-size: 0.9rem !important;
+}
+
+.section-header.collapsed .toggle-icon {
+    transform: rotate(-90deg) !important;
+}
+
+.section-content {
+    padding: 15px !important;
+    overflow: hidden !important;
+    transition: max-height 0.4s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+}
+
+.section-content.collapsed {
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+/* Fix section header margins when collapsed */
+.section-header.collapsed {
+    margin-bottom: 0 !important;
+    border-radius: 10px !important; /* Full radius when collapsed */
+}
+
+.section-header:not(.collapsed) {
+    border-radius: 10px 10px 0 0 !important; /* Only top radius when expanded */
+}
+
+/* Ensure the profile sections container respects boundaries */
+.profile-sections {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: fit-content !important;
+}
+
+/* Ensure content inside section content doesn't overflow */
+.section-content p, 
+.section-content ul, 
+.section-content .contribution-item, 
+.section-content .experience-item,
+.section-content .skills-list {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix section headings for dropdown style */
+.section h3.section-header {
+    padding: 12px 15px !important;
+    margin: 10px 0 15px 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.section {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 0 15px 0 !important; /* Add margin to section instead */
+    padding: 0 !important;
+}
+
+/* Fix body and main container scrolling */
+body, html {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important; /* Prevent page scrolling */
+}
+
+.main-container {
+    display: flex !important;
+    min-height: 100vh !important;
+    height: 100vh !important; /* Fixed height */
+    overflow: hidden !important; /* Prevent scrolling on main container */
+    width: 100% !important;
+}
+
+/* Allow taller content to scroll properly */
+@media (max-height: 800px) {
+    .profile-section {
+        padding-bottom: 50px !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Ensure contact form sits properly at the bottom */
+#contact {
+    margin-bottom: 30px !important;
+}
+
+.contact-form {
+    margin-bottom: 20px !important;
+}
+
+/* Make projects section independent */
+.projects-section {
+    background: linear-gradient(135deg, #43cea2, #185a9d) !important;
+    height: 100vh !important; /* Fixed height */
+    overflow-y: auto !important; /* Independent scrolling */
+    width: 70% !important; /* Width for projects section - adjusted to 70% */
+    flex-shrink: 0 !important; /* Prevent shrinking */
+    box-sizing: border-box !important;
+}
+
+/* Ensure scrollbars only appear when needed */
+.profile-section::-webkit-scrollbar,
+.projects-section::-webkit-scrollbar {
+    width: 8px !important;
+    display: block !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column !important;
+        height: auto !important;
+        overflow-y: auto !important;
+    }
+    
+    .profile-section,
+    .projects-section {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+    
+    body, html {
+        overflow-y: auto !important;
+    }
+}
+
+/* Fix profile section text colors */
+.profile-card,
+.profile-card p, 
+.profile-card li,
+.profile-card h4,
+.profile-card .title,
+.profile-info h1,
+.profile-info .title,
+.skill-tag,
+.experience-item,
+.contribution-item,
+.experience-item p,
+.contribution-item p,
+.section h3,
+.section-header,
+.section-content,
+.section h3.section-header {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* Fix section headings */
+.section h3.section-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-shadow: none !important;
+}
+
+.section-header:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #000000 !important;
+}
+
+/* Ensure toggle icon is also black */
+.toggle-icon {
+    color: #000000 !important;
+}
+
+/* Add borders to profile subsections */
+.profile-sections .section {
+    border: 1px solid #000000 !important;
+    border-radius: 10px !important;
+    margin-bottom: 15px !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.profile-sections .section .section-header {
+    border-bottom: 1px solid #000000 !important;
+    padding: 10px 15px !important;
+    margin: -1px !important; /* To align with parent border */
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.profile-sections .section .section-content {
+    padding: 15px !important;
+}
+
+/* Ensure proper spacing between sections */
+.profile-sections .section:not(:last-child) {
+    margin-bottom: 20px !important;
+}
+
+/* Maintain consistent border radius */
+.profile-sections .section:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Add dividers between content items */
+.experience-item:not(:last-child) {
+    border-bottom: 1px solid #000000 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.contribution-item:not(:last-child) {
+    border-bottom: 1px solid #000000 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+/* Skills section divider */
+.skills-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    padding: 5px !important;
+}
+
+/* Further Education dividers */
+.section#contributions .contribution-item:not(:last-child) {
+    border-bottom: 1px solid #000000 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+/* About section paragraph spacing */
+.section#about p br {
+    margin-bottom: 10px !important;
+    display: block !important;
+    content: "" !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Contact form field spacing */
+.contact-form .form-group:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+} 

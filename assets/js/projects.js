@@ -110,17 +110,33 @@ document.addEventListener('DOMContentLoaded', () => {
         slideInterval = setInterval(nextSlide, 8000);
     }
 
-    // Pause auto-advance on hover
-    projectShowcase.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
+    // Pause auto-advance on hover - only apply on desktop
+    if (window.innerWidth > 768) {
+        projectsSection.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
 
-    // Resume auto-advance when mouse leaves
-    projectShowcase.addEventListener('mouseleave', () => {
-        if (viewToggle.checked) {
-            startSlideInterval();
-        }
-    });
+        // Resume auto-advance when mouse leaves
+        projectsSection.addEventListener('mouseleave', () => {
+            if (viewToggle.checked) {
+                startSlideInterval();
+            }
+        });
+    } else {
+        // For mobile devices, pause on touch start and resume on touch end with a delay
+        projectsSection.addEventListener('touchstart', () => {
+            clearInterval(slideInterval);
+        });
+        
+        projectsSection.addEventListener('touchend', () => {
+            if (viewToggle.checked) {
+                // Small delay before resuming to allow for interaction
+                setTimeout(() => {
+                    startSlideInterval();
+                }, 3000);
+            }
+        });
+    }
 
     // Event listeners for navigation buttons
     nextButton.addEventListener('click', () => {
@@ -232,10 +248,48 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set the height on page load
     setHeight();
+    
     // Update the height on window resize
     window.addEventListener('resize', setHeight);
+    
     // Update the height on orientation change
-    window.addEventListener('orientationchange', setHeight);
+    window.addEventListener('orientationchange', () => {
+        // Small delay to ensure the orientation change has completed
+        setTimeout(() => {
+            setHeight();
+        }, 100);
+    });
+
+    // Mobile touch improvements for project cards
+    if (window.innerWidth <= 768) {
+        // Add additional touch event for better mobile performance
+        document.querySelectorAll('.project-card').forEach(card => {
+            // Use a flag to track if we're in a touch interaction
+            let isTouching = false;
+            
+            card.addEventListener('touchstart', function(e) {
+                isTouching = true;
+                // Add active state visual feedback
+                this.style.transform = 'scale(0.98)';
+            }, { passive: true }); // Passive event for better performance
+            
+            card.addEventListener('touchend', function(e) {
+                if (isTouching) {
+                    // Reset the transform but keep a small delay for visual feedback
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        isTouching = false;
+                    }, 100);
+                }
+            }, { passive: true });
+            
+            // Cancel the touch effect if the touch is moved away (scrolling)
+            card.addEventListener('touchmove', function(e) {
+                isTouching = false;
+                this.style.transform = '';
+            }, { passive: true });
+        });
+    }
 
     // Initialize the view toggle
     setupViewToggle();
