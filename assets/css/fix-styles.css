@@ -106,8 +106,8 @@
 /* Fix sound wave animation */
 .sound-wave div {
     width: 12px !important;
-    height: 20px !important;
-    background: rgba(255, 255, 255, 0.6) !important;
+    height: 30px !important;
+    background: black !important;
     border-radius: 6px !important;
     animation: audio-wave 2.5s infinite ease-in-out !important;
 }
@@ -115,7 +115,7 @@
 /* Updated audio wave animation */
 @keyframes audio-wave {
     0% { height: 20px; transform: translate(0px); background-color: var(--animation-color-1, #333333); }
-    25% { height: 65px; transform: translateY(-5px); background-color: var(--animation-color-2, #666666); }
+    25% { height: 65px; transform: translateY(-10px); background-color: var(--animation-color-2, #666666); }
     50% { height: 20px; transform: translateY(0px); background-color: var(--animation-color-3, #999999); }
     100% { height: 0px; transform: translateY(0px); background-color: var(--animation-color-4, #cccccc); }
 }
@@ -605,4 +605,58 @@ body, html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
     padding-bottom: 15px !important;
     margin-bottom: 15px !important;
+}
+
+/* Profile name styling */
+.profile-info h1 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+    color: #000000 !important;
+    line-height: 1.2 !important;
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+    .profile-info h1 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Typewriter effect for role text */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+    border-right: 0.15em solid #000;
+    animation: typing 3.5s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+    display: inline-block;
+    width: fit-content;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    70% { width: 100%; }
+    90% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #000; }
+}
+
+/* Center the typewriter effect */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 } 

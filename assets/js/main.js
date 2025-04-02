@@ -10,50 +10,42 @@ function initializeSkillTags() {
 function initializeCollapsibleSections() {
     const sectionHeaders = document.querySelectorAll('.section-header');
     
-    // Initially expand the About Me section only
-    sectionHeaders.forEach((header, index) => {
+    // Initially expand only the About Me section
+    sectionHeaders.forEach((header) => {
         const content = header.nextElementSibling;
+        const section = header.closest('.section');
         
         // Make sure content width is properly set
         content.style.width = '100%';
         content.style.boxSizing = 'border-box';
         
-        if (index !== 0) { // Not the first section (About Me)
+        // Check if this is the About Me section
+        if (section && section.id === 'about') {
+            // Keep About Me section expanded
+            content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+            // Collapse all other sections
             header.classList.add('collapsed');
             content.classList.add('collapsed');
             content.style.maxHeight = '0px';
-        } else {
-            // Set max height for the opened section
-            content.style.maxHeight = content.scrollHeight + 'px';
         }
-        
-        // Add click event to toggle section
-        header.addEventListener('click', function() {
-            this.classList.toggle('collapsed');
+    });
+    
+    // Add click event listeners
+    sectionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            const isCollapsed = header.classList.contains('collapsed');
+            
+            // Toggle the clicked section
+            header.classList.toggle('collapsed');
             content.classList.toggle('collapsed');
             
-            if (content.classList.contains('collapsed')) {
-                content.style.maxHeight = '0px';
-            } else {
-                // Force a reflow to ensure proper height calculation
-                void content.offsetWidth;
+            if (isCollapsed) {
                 content.style.maxHeight = content.scrollHeight + 'px';
-                
-                // Scroll this section into view if it's not fully visible
-                setTimeout(() => {
-                    const headerRect = header.getBoundingClientRect();
-                    const contentRect = content.getBoundingClientRect();
-                    const isHeaderVisible = headerRect.top >= 0 && headerRect.bottom <= window.innerHeight;
-                    const isContentVisible = contentRect.bottom <= window.innerHeight;
-                    
-                    if (!isContentVisible && isHeaderVisible) {
-                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }, 50);
+            } else {
+                content.style.maxHeight = '0px';
             }
-            
-            // Ensure the profile section adjusts its height if needed
-            adjustProfileSectionHeight();
         });
     });
     
@@ -107,13 +99,93 @@ function updateExpandedSectionHeights() {
     });
 }
 
-// Initialize animations when the DOM is loaded
+// Typewriter effect for role text
+function initTypewriterEffect() {
+    const roleText = document.getElementById('role-text');
+    if (!roleText) return;
+    
+    // Default text for the role element
+    const defaultText = 'SWE || Cloud Security';
+    
+    // If we've seen this before, don't animate
+    if (localStorage.getItem('typewriterComplete') === 'true') {
+        // Just set the text and disable CSS animations
+        roleText.textContent = defaultText;
+        roleText.style.animation = 'none';
+        roleText.style.borderRight = 'none';
+        return;
+    }
+    
+    // Set flag to prevent animation on future visits
+    localStorage.setItem('typewriterComplete', 'true');
+    
+    // Remove the CSS animation class that might be causing issues
+    roleText.classList.remove('typewriter');
+    
+    // Set starting state
+    roleText.style.whiteSpace = 'nowrap';
+    roleText.style.overflow = 'hidden';
+    roleText.textContent = defaultText;
+    roleText.style.width = '0';
+    roleText.style.borderRight = '0.15em solid #000';
+    
+    // Create and apply our custom animation
+    let width = 0;
+    const targetWidth = roleText.scrollWidth;
+    
+    function animateTyping() {
+        if (width < targetWidth) {
+            width += targetWidth / 20; // Increase by 5% of total width each step
+            roleText.style.width = width + 'px';
+            requestAnimationFrame(animateTyping);
+        } else {
+            // Animation complete - set final state
+            roleText.style.width = '100%';
+            
+            // Add blinking cursor animation
+            roleText.style.borderRight = '0.15em solid #000';
+            setTimeout(() => {
+                // After a delay, remove the cursor
+                roleText.style.borderRight = 'none';
+            }, 5000);
+        }
+    }
+    
+    // Start the animation after a short delay
+    setTimeout(() => {
+        requestAnimationFrame(animateTyping);
+    }, 1000);
+}
+
+// Handle showcase vs all projects view
+function handleAllProjectsView() {
+    const viewToggle = document.getElementById('viewToggle');
+    if (!viewToggle) return;
+    
+    // Set to showcase mode by default
+    viewToggle.checked = true;
+    
+    // Trigger change event to update the view
+    const changeEvent = new Event('change');
+    viewToggle.dispatchEvent(changeEvent);
+}
+
+// Setup project navigation controls
+function setupProjectNavigation() {
+    // This function is handled in projects.js
+    // Empty implementation here as it's called from DOM content loaded
+}
+
+// Call all initialization functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // ... existing code may be here ...
-    
-    // Initialize skill tag animations
-    initializeSkillTags();
-    
-    // Initialize collapsible sections
     initializeCollapsibleSections();
+    setupProjectNavigation();
+    handleAllProjectsView();
+    adjustProfileSectionHeight();
+    initTypewriterEffect();
+    
+    // Resize handler
+    window.addEventListener('resize', function() {
+        adjustProfileSectionHeight();
+    });
 }); 
