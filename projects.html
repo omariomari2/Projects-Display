@@ -19,8 +19,49 @@
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/showcase-fixes.js"></script>
     <title>My Portfolio</title>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .back-button i {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        // Function to navigate with loading screen
+        function navigateWithLoading(destination) {
+            window.location.href = 'loading.html?destination=' + encodeURIComponent(destination);
+            return false; // Prevent default link behavior
+        }
+    </script>
 </head>
 <body>
+    <div class="back-button" onclick="return navigateWithLoading('index.html');" title="Back to Home">
+        <i class="fas fa-arrow-left"></i>
+    </div>
     <div class="main-container">
         <section class="profile-section">
             <div class="section-content">

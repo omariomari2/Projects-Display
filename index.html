@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Omari's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+      // Function to navigate with loading screen
+      function navigateWithLoading(destination) {
+        window.location.href = 'loading.html?destination=' + encodeURIComponent(destination);
+        return false; // Prevent default link behavior
+      }
+
+      // Animation for title when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const title = document.querySelector('.title');
+        
+        // Wait for the slide-in animation to complete
+        setTimeout(() => {
+          // Add typewriter effect
+          title.classList.add('animate');
+          
+          // After typewriter effect, add a subtle highlight
+          setTimeout(() => {
+            title.classList.remove('animate');
+            
+            // Add a subtle flash of the background
+            title.style.transition = 'background-color 0.5s ease';
+            title.style.backgroundColor = 'rgba(78, 205, 196, 0.2)';
+            
+            setTimeout(() => {
+              title.style.backgroundColor = 'transparent';
+            }, 500);
+          }, 3000);
+        }, 1500);
+        
+        // Add interactive effect for each character on hover
+        title.addEventListener('mouseover', function() {
+          const chars = title.textContent.split('');
+          title.textContent = '';
+          
+          chars.forEach(char => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            span.style.display = 'inline-block';
+            span.style.transition = 'transform 0.2s ease';
+            
+            span.addEventListener('mouseover', function() {
+              this.style.transform = 'translateY(-5px)';
+              this.style.color = '#4ecdc4';
+            });
+            
+            span.addEventListener('mouseout', function() {
+              this.style.transform = 'translateY(0)';
+              this.style.color = '';
+            });
+            
+            title.appendChild(span);
+          });
+          
+          // Only do this once
+          title.removeEventListener('mouseover', arguments.callee);
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="info"></div>
@@ -13,13 +72,13 @@
       <div class="grid-container">
         <div class="left-content">
           <h1 class="name">Omari<span class="exclaim">iii!</span> </h1>
-          <p class="title">SWE || Cloud Security<span class="exclaim">!</span> </p>
+          <p class="title">SWE || Cloud Security</p>
           <div class="buttons">
             <a href="https://github.com" class="btn" target="_blank">
               <span class="btn-slide"></span>
               <span class="btn-text">GitHub</span>
             </a>
-            <a href="/resume.pdf" class="btn" target="_blank">
+            <a href="assets/resume/my_resume.pdf" class="btn" target="_blank">
               <span class="btn-slide"></span>
               <span class="btn-text">Resume</span>
             </a>
@@ -27,7 +86,7 @@
               <span class="btn-slide"></span>
               <span class="btn-text">Email</span>
             </a>
-            <a href="projects.html" class="btn" target="_parent">
+            <a href="javascript:void(0);" onclick="return navigateWithLoading('projects.html');" class="btn">
               <span class="btn-slide"></span>
               <span class="btn-text">Projects</span>
             </a>
