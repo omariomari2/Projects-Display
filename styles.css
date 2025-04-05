@@ -1,0 +1,325 @@
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #ffffff;
+    --text-color: #ffffff;
+    --transition-speed: 0.3s;
+    --font-type: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background.jpeg') center/cover no-repeat;
+    filter: brightness(0.7);
+    z-index: -1;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeInLeft 1s ease-out;
+  }
+  
+  .name {
+    font-size: 7rem;
+    margin-bottom: 1rem;
+    animation: slideInDown 2s ease-out, unstatic 2s ease-in-out infinite alternate;
+    position: relative;
+    width: fit-content;
+    border-radius: 15px;
+    display: inline-block; /* Helps with alignment */
+    transition: all 0.7s ease-in-out;
+  }
+
+  
+  .name::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 10px;
+      bottom: 0;
+      left: 0; 
+      border-radius:15px;
+      background: linear-gradient(
+          to right,
+          #ff6b6b,
+          #4ecdc4,
+          #45b7d1,
+          #96c93d,
+          #e056fd
+          );
+          transform-origin: bottom right;
+          transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        
+    .name:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    
+    .name:hover{
+        color: black; 
+        letter-spacing: 10px;
+        font-weight: 900;
+        animation-play-state: paused;
+    }
+    .exclaim{
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+      padding: 0; margin: 0;
+    }
+    .name:hover .exclaim{
+      opacity: 1;
+    }
+
+    .title {
+        font-size: 2rem;
+        color: black;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeIn 1s ease-out 0.5s forwards;
+        width: fit-content;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .title::after{
+      content: '!';
+      position: relative;
+      opacity: 0;
+    }
+
+    .title:hover::before{
+      left: 100%;
+    }
+
+    .title:hover{
+      cursor: pointer;
+      color: white;
+    }
+    .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+  
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s, border-color 0.2s;
+  }
+  
+  .btn-slide {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      hsla(32, 63%, 79%, 0.911),
+      hsla(32, 44%, 74%, 0.911),
+      hsla(32, 63%, 79%, 0.911),
+      hsla(31, 31%, 59%, 0.911),
+      hsla(32, 27%, 43%, 0.911)
+      );
+    left: 0;
+    top: 0;
+    transition: var(--transition-speed);
+    z-index: -1;
+  }
+  
+  .btn:hover .btn-slide {
+    width: 100%;
+  }
+
+  .btn:hover{
+    border-color: black;
+    color: black;
+  }
+  
+  .btn-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn:nth-child(4){
+    text-align: left;
+    height: 100px;
+    padding: 2rem 2rem;
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  .right-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInRight 3s ease-out;
+  }
+  
+  .profile-container {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 83%;
+    background-image: url(images/profile.jpeg);
+    height: 95%;
+    background-size: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .profile-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7)
+  }
+
+  .profile-image::before{
+    content: "1% Better Everyday";
+    font-style: italic;
+    color: white;
+    font-family: var(--font-type);
+    font-weight: 700;
+    font-size: large;
+    letter-spacing: 5px;
+    font-weight: 600;
+    position: absolute;
+    top: 0%; 
+    left: 50%; text-align: left;
+    opacity: 0;
+    padding: 5px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.23,
+    0.93, 0.77, 1) 0.1s, color 0.4s;
+  }
+
+  .profile-image:hover::before{
+    opacity: 1;
+    transform: translateY(100px);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .profile-image::after{
+    content: "Student @ GSU28 \A CS||Cybersecurity";
+    white-space: pre-line;
+    color: white;
+    font-family: var(--font-type);
+    font-weight: 700;
+    font-size: large;
+    letter-spacing: 10px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0%; 
+    left: 50%; text-align: left;
+    opacity: 0;
+    padding: 5px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.23,
+    0.93, 0.77, 1) 0.1s, color 0.4s;
+  }
+
+  .profile-image:hover::after{
+    opacity: 1;
+    transform: translateY(-795px);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes unstatic{
+    from {
+      transform: translateY(10px);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .profile-container {
+      height: 50vh;
+    }
+  }
+
