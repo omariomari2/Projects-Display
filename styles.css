@@ -102,8 +102,8 @@
         font-size: 1.8rem;
         color: #333;
         margin-bottom: 2rem;
-        opacity: 0;
-        animation: fadeIn 1s ease-out 0.5s forwards;
+        opacity: 1;
+        /* animation: fadeIn 1s ease-out 0.5s forwards; */
         width: fit-content;
         transition: all 0.3s ease-in-out;
         position: relative;
