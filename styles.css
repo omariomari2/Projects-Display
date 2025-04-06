@@ -385,6 +385,7 @@
   @media (max-width: 768px) {
     body {
       overflow-y: auto;
+      scroll-behavior: smooth;
     }
     
     .grid-container {
@@ -408,6 +409,49 @@
       justify-content: center;
       background: transparent;
       border-radius: 15px;
+      transition: all 0.3s ease-out;
+    }
+    
+    .project-content {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform, opacity;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .project-content.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .project-showcase {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+      will-change: transform;
+    }
+    
+    .project-slide {
+      will-change: transform;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .project-card {
+      transition: all 0.3s ease-out;
+      will-change: transform;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-image {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    
+    .project-image:hover {
+      transform: scale(1.05);
     }
     
     .name {
@@ -450,45 +494,6 @@
     
     .profile-container {
       display: none;
-    }
-
-    /* Mobile project stacking styles */
-    .all-projects-view {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card {
-      position: sticky;
-      top: 10vh;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      perspective: 1000px;
-      transition: transform 0.3s ease-out;
-      z-index: 1;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-card:not(:first-child) {
-      margin-top: -20px;
-    }
-
-    .project-card:nth-child(odd) {
-      transform: translateY(10px);
-    }
-
-    .project-card:nth-child(even) {
-      transform: translateY(-10px);
-    }
-
-    .project-card:hover {
-      transform: translateY(0) scale(1.02);
-      z-index: 2;
     }
   }
   

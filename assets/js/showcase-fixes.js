@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.forEach(slide => {
             slide.style.height = `${vh}px`;
             slide.style.minHeight = 'auto';
+            
+            // Add smooth scroll animation
+            slide.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            slide.style.willChange = 'transform';
         });
         
         // Adjust content heights to fit within viewport
@@ -67,15 +71,74 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxHeight = vh - 100;
             content.style.maxHeight = `${maxHeight}px`;
             
-            // Adjust font size based on available height
-            if (vh < 600) {
-                content.style.fontSize = '0.85rem';
-                const heading = content.querySelector('h3');
-                if (heading) heading.style.fontSize = '1rem';
-            }
+            // Add smooth scroll animation
+            content.style.transition = 'transform 0.3s ease-out';
+            content.style.willChange = 'transform';
+            
+            // Add subtle parallax effect
+            content.style.transform = 'translateY(0)';
         });
     }
-    
+
+    // Add smooth scroll behavior
+    function setupSmoothScroll() {
+        if (!isMobile) return;
+
+        const projectContents = document.querySelectorAll('.project-content');
+        let lastScrollTop = 0;
+        let isScrolling = false;
+
+        // Add scroll event listener
+        window.addEventListener('scroll', () => {
+            if (!viewToggle.checked) return; // Only apply in showcase mode
+            
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollDirection = st > lastScrollTop ? 'down' : 'up';
+            lastScrollTop = st <= 0 ? 0 : st;
+
+            // Add smooth parallax effect
+            projectContents.forEach((content, index) => {
+                const parallaxAmount = (st / 3) * (index + 1);
+                content.style.transform = `translateY(${scrollDirection === 'down' ? parallaxAmount : -parallaxAmount}px)`;
+            });
+
+            // Add loading animation for content
+            if (st > 0) {
+                projectContents.forEach(content => {
+                    content.style.opacity = '1';
+                    content.style.transform = 'translateY(0)';
+                });
+            }
+        }, { passive: true });
+
+        // Add touch event listeners for smooth scrolling
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        projectShowcase.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            isScrolling = false;
+        }, { passive: true });
+
+        projectShowcase.addEventListener('touchmove', (e) => {
+            touchEndY = e.touches[0].clientY;
+            const deltaY = touchEndY - touchStartY;
+
+            // Add smooth scroll animation
+            projectShowcase.style.transform = `translateY(${deltaY}px)`;
+            isScrolling = true;
+        }, { passive: true });
+
+        projectShowcase.addEventListener('touchend', () => {
+            if (isScrolling) {
+                // Add spring-back animation
+                projectShowcase.style.transition = 'transform 0.3s ease-out';
+                projectShowcase.style.transform = 'translateY(0)';
+                isScrolling = false;
+            }
+        }, { passive: true });
+    }
+
     // Initialize visibility
     updateNavigationVisibility();
     
@@ -85,62 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial resize
     resizeProjectContent();
     
+    // Setup smooth scroll
+    setupSmoothScroll();
+
     if (isMobile) {
-        // Mobile-specific project card enhancements
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        // Add touch event handlers for better mobile interaction
-        projectCards.forEach(card => {
-            let isTouching = false;
-            let touchStartY = 0;
-            let touchEndY = 0;
-            
-            card.addEventListener('touchstart', function(e) {
-                isTouching = true;
-                touchStartY = e.touches[0].clientY;
-                
-                // Add active state visual feedback
-                this.style.transform = 'scale(0.98)';
-            }, { passive: true });
-            
-            card.addEventListener('touchmove', function(e) {
-                touchEndY = e.touches[0].clientY;
-                
-                // Calculate swipe direction
-                const swipeDistance = touchStartY - touchEndY;
-                
-                // If swiping up or down, adjust card position
-                if (Math.abs(swipeDistance) > 5) {
-                    this.style.transform = `translateY(${swipeDistance}px) scale(0.98)`;
-                }
-            }, { passive: true });
-            
-            card.addEventListener('touchend', function(e) {
-                if (isTouching) {
-                    // Reset the transform but keep a small delay for visual feedback
-                    setTimeout(() => {
-                        this.style.transform = '';
-                        isTouching = false;
-                    }, 100);
-                }
-            }, { passive: true });
-        });
-
-        // Add smooth scrolling for stacked cards
-        document.addEventListener('scroll', function() {
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                const distanceFromTop = rect.top;
-                
-                // Adjust card position based on scroll position
-                if (distanceFromTop > 0 && distanceFromTop < window.innerHeight) {
-                    const scale = 1 + (distanceFromTop / window.innerHeight) * 0.1;
-                    card.style.transform = `scale(${scale})`;
-                }
-            });
-        }, { passive: true });
-
         // Listen for view toggle changes
         if (viewToggle) {
             viewToggle.addEventListener('change', function() {
