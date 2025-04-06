@@ -103,7 +103,7 @@
         color: #333;
         margin-bottom: 2rem;
         opacity: 0;
-        animation: slideInFromRight 1s ease-out 0.5s forwards;
+        animation: fadeIn 1s ease-out 0.5s forwards;
         width: fit-content;
         transition: all 0.3s ease-in-out;
         position: relative;
@@ -111,14 +111,14 @@
         border-radius: 4px;
       }
       
-      @keyframes slideInFromRight {
-        0% {
+      @keyframes fadeIn {
+        from {
           opacity: 0;
-          transform: translateX(50px);
+          transform: translateY(20px);
         }
-        100% {
+        to {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0);
         }
       }
       
@@ -464,6 +464,39 @@
     .title {
       font-size: 1.4rem;
       margin-bottom: 1.5rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-out forwards;
+    }
+    
+    .title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, #4ecdc4, #45b7d1);
+      transition: width 0.3s ease;
+    }
+    
+    .title:hover::before {
+      width: 100%;
+      z-index: -1;
+    }
+    
+    .title span.exclaim {
+      display: inline-block;
+      transform: rotate(0deg);
+      transition: transform 0.4s ease;
+    }
+    
+    .title:hover span.exclaim {
+      transform: rotate(360deg);
+    }
+    
+    .title:hover {
+      cursor: pointer;
       color: white;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
