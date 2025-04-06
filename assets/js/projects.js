@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentSlide = 0;
     let isAnimating = false;
-    let slideInterval;
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -22,14 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
             projectShowcase.classList.add('hidden');
             allProjectsView.classList.add('active');
             projectsSection.classList.add('all-view');
-            clearInterval(slideInterval);
         } else {
             // If toggle is checked, show showcase view
             projectShowcase.classList.remove('hidden');
             allProjectsView.classList.remove('active');
             projectsSection.classList.remove('all-view');
             projectsSection.style.background = getComputedStyle(slides[currentSlide]).background;
-            startSlideInterval();
         }
     }
 
@@ -54,9 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Reset the background of projects section
                     projectsSection.style.background = 
                         getComputedStyle(slides[currentSlide]).background;
-                    
-                    // Start auto-advance for showcase
-                    startSlideInterval();
                 } else {
                     // Show all-projects view
                     projectShowcase.classList.add('hidden');
@@ -65,9 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Reset the background of projects section for all-projects view
                     projectsSection.style.background = '';
-                    
-                    // Stop auto-advance when in all-projects view
-                    clearInterval(slideInterval);
                 }
             });
         }
@@ -93,83 +84,52 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsSection.style.background = 
                 getComputedStyle(slides[currentSlide]).background;
         }
-
-        // Allow next animation after transition completes
-        setTimeout(() => {
-            isAnimating = false;
-        }, 600); // Slightly longer than the CSS transition
+        
+        isAnimating = false;
     }
 
     function nextSlide() {
-        const newIndex = (currentSlide + 1) % slides.length;
-        updateSlides(newIndex);
+        if (isAnimating) return;
+        const nextIndex = (currentSlide + 1) % slides.length;
+        updateSlides(nextIndex);
     }
 
     function prevSlide() {
-        const newIndex = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlides(newIndex);
-    }
-
-    function startSlideInterval() {
-        // Clear any existing interval first
-        clearInterval(slideInterval);
-        // Start a new interval
-        slideInterval = setInterval(nextSlide, 8000);
+        if (isAnimating) return;
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlides(prevIndex);
     }
 
     // Pause auto-advance on hover - only apply on desktop
     if (window.innerWidth > 768) {
         projectsSection.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
         });
 
         // Resume auto-advance when mouse leaves
         projectsSection.addEventListener('mouseleave', () => {
-            if (viewToggle.checked) {
-                startSlideInterval();
-            }
         });
     } else {
         // For mobile devices, pause on touch start and resume on touch end with a delay
         projectsSection.addEventListener('touchstart', () => {
-            clearInterval(slideInterval);
         });
         
         projectsSection.addEventListener('touchend', () => {
-            if (viewToggle.checked) {
-                // Small delay before resuming to allow for interaction
-                setTimeout(() => {
-                    startSlideInterval();
-                }, 3000);
-            }
         });
     }
 
     // Event listeners for navigation buttons
     nextButton.addEventListener('click', () => {
-        clearInterval(slideInterval);
         nextSlide();
-        if (viewToggle.checked) {
-            startSlideInterval();
-        }
     });
     
     prevButton.addEventListener('click', () => {
-        clearInterval(slideInterval);
         prevSlide();
-        if (viewToggle.checked) {
-            startSlideInterval();
-        }
     });
 
     // Event listeners for project numbers
     projectNumbers.forEach((number, index) => {
         number.addEventListener('click', () => {
-            clearInterval(slideInterval);
             updateSlides(index);
-            if (viewToggle.checked) {
-                startSlideInterval();
-            }
         });
     });
 
@@ -178,13 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!viewToggle.checked) return; // Only enable keyboard navigation in showcase view
         
         if (e.key === 'ArrowRight') {
-            clearInterval(slideInterval);
             nextSlide();
-            startSlideInterval();
         } else if (e.key === 'ArrowLeft') {
-            clearInterval(slideInterval);
             prevSlide();
-            startSlideInterval();
         }
     });
 
@@ -204,16 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const touchDiff = touchStartX - touchEndX;
         
         if (Math.abs(touchDiff) > swipeThreshold) {
-            clearInterval(slideInterval);
             if (touchDiff > 0) {
                 // Swipe left, go to next slide
                 nextSlide();
             } else {
                 // Swipe right, go to previous slide
                 prevSlide();
-            }
-            if (viewToggle.checked) {
-                startSlideInterval();
             }
         }
     }
