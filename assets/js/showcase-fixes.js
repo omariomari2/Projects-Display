@@ -86,6 +86,61 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeProjectContent();
     
     if (isMobile) {
+        // Mobile-specific project card enhancements
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // Add touch event handlers for better mobile interaction
+        projectCards.forEach(card => {
+            let isTouching = false;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            card.addEventListener('touchstart', function(e) {
+                isTouching = true;
+                touchStartY = e.touches[0].clientY;
+                
+                // Add active state visual feedback
+                this.style.transform = 'scale(0.98)';
+            }, { passive: true });
+            
+            card.addEventListener('touchmove', function(e) {
+                touchEndY = e.touches[0].clientY;
+                
+                // Calculate swipe direction
+                const swipeDistance = touchStartY - touchEndY;
+                
+                // If swiping up or down, adjust card position
+                if (Math.abs(swipeDistance) > 5) {
+                    this.style.transform = `translateY(${swipeDistance}px) scale(0.98)`;
+                }
+            }, { passive: true });
+            
+            card.addEventListener('touchend', function(e) {
+                if (isTouching) {
+                    // Reset the transform but keep a small delay for visual feedback
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        isTouching = false;
+                    }, 100);
+                }
+            }, { passive: true });
+        });
+
+        // Add smooth scrolling for stacked cards
+        document.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const distanceFromTop = rect.top;
+                
+                // Adjust card position based on scroll position
+                if (distanceFromTop > 0 && distanceFromTop < window.innerHeight) {
+                    const scale = 1 + (distanceFromTop / window.innerHeight) * 0.1;
+                    card.style.transform = `scale(${scale})`;
+                }
+            });
+        }, { passive: true });
+
         // Listen for view toggle changes
         if (viewToggle) {
             viewToggle.addEventListener('change', function() {

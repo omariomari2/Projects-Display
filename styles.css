@@ -451,6 +451,45 @@
     .profile-container {
       display: none;
     }
+
+    /* Mobile project stacking styles */
+    .all-projects-view {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card {
+      position: sticky;
+      top: 10vh;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+      transition: transform 0.3s ease-out;
+      z-index: 1;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card:not(:first-child) {
+      margin-top: -20px;
+    }
+
+    .project-card:nth-child(odd) {
+      transform: translateY(10px);
+    }
+
+    .project-card:nth-child(even) {
+      transform: translateY(-10px);
+    }
+
+    .project-card:hover {
+      transform: translateY(0) scale(1.02);
+      z-index: 2;
+    }
   }
   
   @media (max-width: 480px) {
