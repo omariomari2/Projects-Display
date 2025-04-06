@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (viewToggle) {
             // Add change event listener
             viewToggle.addEventListener('change', function() {
+                if (this.checked && window.innerWidth <= 768) {
+                    // If on mobile and trying to switch to showcase
+                    alert('The showcase view is only available on desktop. Please switch to the "All Projects" view.');
+                    this.checked = false;
+                    return;
+                }
+                
                 if (this.checked) {
                     // Show showcase view
                     projectShowcase.classList.remove('hidden');

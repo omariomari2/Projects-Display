@@ -22,16 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Function to fix toggle position
     function fixTogglePosition() {
-        if (!isMobile || !toggleContainer) return;
+        if (!toggleContainer) return;
         
-        // Ensure toggle is positioned within the project section
-        toggleContainer.style.position = 'absolute';
-        toggleContainer.style.top = '10px';
-        toggleContainer.style.right = '10px';
-        
-        // Enforce toggle in projects section
-        if (projectsSection) {
-            projectsSection.appendChild(toggleContainer);
+        // Hide toggle on mobile
+        if (window.innerWidth <= 768) {
+            toggleContainer.style.display = 'none';
+        } else {
+            // Ensure toggle is positioned within the project section
+            toggleContainer.style.display = 'block';
+            toggleContainer.style.position = 'absolute';
+            toggleContainer.style.top = '10px';
+            toggleContainer.style.right = '10px';
+            
+            // Enforce toggle in projects section
+            if (projectsSection) {
+                projectsSection.appendChild(toggleContainer);
+            }
         }
     }
     
