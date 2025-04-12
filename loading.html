@@ -27,6 +27,7 @@
             align-items: center;
             background: linear-gradient(45deg, #1a1a2e, #0f0f18);
             z-index: 1000;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .loading-content {
@@ -58,15 +59,52 @@
             -webkit-text-fill-color: transparent;
         }
 
-        @keyframes pulse {
+        .cyber-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .cyber-icon .shield {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            border-radius: 50% 50% 30% 30%;
+            animation: shieldRotate 5s linear infinite;
+        }
+
+        .cyber-icon .lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background: linear-gradient(45deg, #45b7d1, #4ecdc4);
+            border-radius: 50%;
+            animation: lockPulse 2s infinite;
+        }
+
+        @keyframes shieldRotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes lockPulse {
             0% {
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
             }
             50% {
-                transform: scale(1.1);
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
             }
             100% {
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
             }
         }
 
@@ -95,15 +133,6 @@
             background: linear-gradient(45deg, #4ecdc4, #45b7d1, #96c93d, #e056fd);
             border-radius: 5px;
             animation: progress 2s ease-in-out forwards;
-        }
-
-        @keyframes progress {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
         }
 
         .loading-text {
@@ -169,14 +198,10 @@
                 font-size: 20px;
             }
 
-            .text-1, .text-2, .text-3 {
-                font-size: 14px;
+            .gh-flag {
+                width: 40px;
+                height: 27px;
             }
-        }
-
-        /* Particle colors */
-        .particle {
-            background: hsl(var(--hue), 100%, 50%);
         }
 
         @keyframes colorChange {
@@ -204,7 +229,13 @@
             <div class="loading-icon">
                 <i class="fas fa-code"></i>
             </div>
-            <h1 class="loading-title">Loading...</h1>
+            <div class="cyber-icon">
+                <div class="shield"></div>
+                <div class="lock"></div>
+            </div>
+            <div class="loading-title">
+                Loading Portfolio
+            </div>
             <div class="progress-container">
                 <div class="progress-bar"></div>
             </div>
@@ -222,21 +253,24 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
                 this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                this.opacity = 1;
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
+                this.opacity -= 0.01;
 
                 if (this.size > 0.2) this.size -= 0.05;
             }
 
             draw(ctx) {
                 ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -259,6 +293,9 @@
 
             createParticle(x, y) {
                 this.particles.push(new Particle(x, y));
+                if (this.particles.length > 100) {
+                    this.particles.shift();
+                }
             }
 
             update() {
@@ -269,7 +306,7 @@
                     particle.update();
                     particle.draw(this.ctx);
 
-                    if (particle.size <= 0.2) {
+                    if (particle.opacity <= 0 || particle.size <= 0.2) {
                         this.particles.splice(i, 1);
                     }
                 }
@@ -287,7 +324,7 @@
 
         // Create particles on click
         document.addEventListener('click', (e) => {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 15; i++) {
                 particleSystem.createParticle(e.clientX, e.clientY);
             }
         });
@@ -310,7 +347,7 @@
         let progress = 0;
         
         function updateProgress() {
-            progress += 0.5;
+            progress += 2;
             if (progress > 100) {
                 progress = 0;
             }
@@ -325,7 +362,7 @@
             setTimeout(() => {
                 text.style.opacity = '1';
                 text.style.transform = 'translateY(0)';
-            }, 1000 + (index * 500));
+            }, 300 + (index * 400));
         });
 
         // Redirect after loading
@@ -333,10 +370,13 @@
         const destination = params.get('destination');
         
         setTimeout(() => {
-            if (destination) {
-                window.location.href = decodeURIComponent(destination);
-            }
-        }, 3000);
+            document.querySelector('.loading-container').style.opacity = '0';
+            setTimeout(() => {
+                if (destination) {
+                    window.location.href = decodeURIComponent(destination);
+                }
+            }, 500);
+        }, 1500);
     </script>
 </body>
 </html>
