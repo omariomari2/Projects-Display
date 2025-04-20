@@ -378,7 +378,7 @@ transform: translateY(0);
 }
 .about-content .skills-list .skill {
   position: absolute;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.618);
   color: black;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
@@ -901,20 +901,41 @@ button.github:hover {
   }
 }
 
-/* Mobile fix: stack content full width and disable hover expansion */
+/* Mobile: fix container two layout */
 @media (max-width: 550px) {
+  .container.two .category_container {
+    flex-direction: column;
+  }
   .container.two .content,
-  .container.two .content.active {
+  .container.two .content.active,
+  .container.two .content:hover {
     width: 100% !important;
-    margin: 0 !important;
+    transition: none !important;
+    margin: 0 auto !important;
   }
-  .container.two .content:hover,
-  .container.two .content:last-child:hover {
-    width: 100% !important;
+}
+
+/* Ensure container two expands height based on content */
+.container.two {
+  height: auto !important;
+}
+/* Make contact-section and footer part of normal flow */
+.contact-section,
+.site-footer {
+  position: relative !important;
+  z-index: auto !important;
+}
+
+/* Reduce footer height on mobile */
+@media (max-width: 550px) {
+  .site-footer {
+    padding: 1rem 0.5rem !important;
   }
-  /* Prevent content wrapper expansion on mobile */
-  .container.two .content .wrapper,
-  .container.two .content.active .wrapper {
-    grid-template-rows: 0fr !important;
+  .site-footer .footer-container {
+    padding-bottom: 0.5rem !important;
+  }
+  .site-footer .footer-bottom {
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
   }
 }
