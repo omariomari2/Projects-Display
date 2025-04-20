@@ -607,6 +607,7 @@ transform: translateY(0);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--light);
+  font-family: Arial, sans-serif;
 }
 
 /* Enhance two-pane images */
@@ -791,12 +792,10 @@ button.github:hover {
 
 /* Scatter and color entries in two-pane wrapper */
 .container.two .content.active .wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: block;
 }
 .container.two .content.active .wrapper p {
-  width: 48%;
+  width: 100%;
   text-align: left;
   margin-bottom: 1.5rem;
 }
@@ -945,4 +944,6 @@ button.github:hover {
   background-image: url('images/background.PNG');
   background-size: cover;
   background-position: center;
+  border-radius: 1rem;
+  margin-top: 0;
 }
