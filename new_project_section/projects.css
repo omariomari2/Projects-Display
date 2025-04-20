@@ -54,14 +54,10 @@ body {
   .content {
     width: 100% !important;
     transition: none !important;
-    pointer-events: none;
   }
   .content:hover,
   .content:last-child:hover {
     width: 100% !important;
-  }
-  .content * {
-    pointer-events: auto;
   }
 }
 
@@ -902,5 +898,18 @@ button.github:hover {
     width: 100%;
     justify-content: center;
     display: flex;
+  }
+}
+
+/* Mobile fix: stack content full width and disable hover expansion */
+@media (max-width: 550px) {
+  .container.two .content,
+  .container.two .content.active {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .container.two .content:hover,
+  .container.two .content:last-child:hover {
+    width: 100% !important;
   }
 }
