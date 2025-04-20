@@ -54,10 +54,14 @@ body {
   .content {
     width: 100% !important;
     transition: none !important;
+    pointer-events: none;
   }
   .content:hover,
   .content:last-child:hover {
     width: 100% !important;
+  }
+  .content * {
+    pointer-events: auto;
   }
 }
 
@@ -266,6 +270,7 @@ body {
   font-weight: 700;
   line-height: 1.1;
   color: #111;
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   opacity: 0;
   transform: translateY(40px);
@@ -314,11 +319,10 @@ body {
   background: transparent !important;
   color: #111 !important;
   border: 2px solid #111;
-  box-shadow: none;
   position: relative;
   overflow: hidden;
   transition: color 0.3s ease;
-  padding: 1rem 2.5rem;
+  padding: 1rem 0.5rem;
   font-size: 0.75rem;
   font-family: inherit;
   font-weight: 300;
@@ -326,6 +330,8 @@ body {
   margin-top: 0.5rem;
   text-decoration: none;
   display: inline-block;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 .about-btn::before {
   content: '';
@@ -341,6 +347,7 @@ body {
 }
 .about-btn:hover {
   color: #fff !important;
+  box-shadow: rgba(255, 255, 255, 0.704) 0 10px 10px;
 }
 @keyframes fadeSlideIn {
 from {
@@ -809,15 +816,15 @@ button.github:hover {
 }
 .container.two .content .wrapper p::before {
   counter-increment: entry;
-  content: counter(entry) ". ";
+  content: "";
   font-weight: 700;
 }
 
 /* Style individual experience/education entries */
 .container.two .content .wrapper p {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.5rem;
-  color: #000 !important;
+  background: transparent;
+  border-radius: 0;
+  color: #ffffff !important;
   padding: 0.75rem;
   margin-bottom: 1rem; /* ensure spacing */
   font-weight: 400 !important;

@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/mobile-fixes.css">
     <script>
-      // Function to navigate with loading screen
-      function navigateWithLoading(destination) {
-        window.location.href = 'loading.html?destination=' + encodeURIComponent(destination);
-        return false; // Prevent default link behavior
-      }
-
       // Animation for title when page loads
       document.addEventListener('DOMContentLoaded', function() {
         const title = document.querySelector('.title');
@@ -92,7 +86,7 @@
               <span class="btn-slide"></span>
               <span class="btn-text">LinkedIn</span>
             </a>
-            <a href="javascript:void(0);" onclick="return navigateWithLoading('new_project_section/projects.html');" class="btn">
+            <a href="new_project_section/projects.html" class="btn">
               <span class="btn-slide"></span>
               <span class="btn-text">Projects</span>
             </a>
