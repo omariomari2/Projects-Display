@@ -912,4 +912,9 @@ button.github:hover {
   .container.two .content:last-child:hover {
     width: 100% !important;
   }
+  /* Prevent content wrapper expansion on mobile */
+  .container.two .content .wrapper,
+  .container.two .content.active .wrapper {
+    grid-template-rows: 0fr !important;
+  }
 }
