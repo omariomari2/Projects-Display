@@ -939,3 +939,10 @@ button.github:hover {
     padding-top: 0.5rem !important;
   }
 }
+
+/* Only apply background on the third category_container */
+.container.two .category_container {
+  background-image: url('images/background.PNG');
+  background-size: cover;
+  background-position: center;
+}
