@@ -818,11 +818,12 @@ button.github:hover {
 /* Style individual experience/education entries */
 .container.two .content .wrapper p {
   background: transparent;
+  font-family: monospace !important;
   border-radius: 0;
   color: #ffffff !important;
   padding: 0.75rem;
   margin-bottom: 1rem; /* ensure spacing */
-  font-weight: 400 !important;
+  font-weight: 200 !important;
 }
 
 /* Contact footer styling */
