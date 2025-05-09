@@ -1198,7 +1198,35 @@ button.github:hover {
     font-size: 1.8rem;
   }
   
-  .featured-description p {
-    font-size: 1rem;
+  .featured-description {
+    display: none;
+  }
+
+  .featured-content {
+    padding: 1.5rem;
+  }
+
+  .featured-tech {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .featured-project {
+    min-height: auto;
+  }
+
+  .featured-links {
+    margin-top: 1rem;
+  }
+}
+
+/* Show only first paragraph in medium-sized screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .featured-description p:not(:first-child) {
+    display: none;
+  }
+  
+  .featured-description {
+    margin-bottom: 1.5rem;
   }
 }
