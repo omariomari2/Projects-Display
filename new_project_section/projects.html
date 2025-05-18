@@ -304,5 +304,13 @@
   <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <script src="projects.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('img').forEach(function(img) {
+        img.loading = 'lazy';
+      });
+    });
+  </script>
+
 </body>
 </html>
