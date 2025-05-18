@@ -209,6 +209,10 @@
     transition: var(--transition-speed);
     z-index: -1;
   }
+
+  i{
+    font-weight: bold;
+  }
   
   .btn:hover .btn-slide {
     width: 100%;
