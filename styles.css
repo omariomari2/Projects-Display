@@ -808,6 +808,11 @@
     transform: translateX(-100%);
   }
 
+  .slide.next {
+    transform: translateX(100%);
+  }
+
+  /* Ensure outgoing slide remains visible for animation */
   .slide.prev,
   .slide.next {
     display: block;
@@ -1103,5 +1108,87 @@
     .flip-card-back .contact-icons a span {
       font-size: 0.8em !important;
     }
+  }
+
+  /* Skill bars for service section */
+  .service-pitch {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin: 0 20px 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .service-bars {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .skill-bar-container {
+    margin-bottom: 15px;
+  }
+
+  .skill-label {
+    display: block;
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-color);
+  }
+
+  .skill-bar {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 15px;
+  }
+
+  .skill-bar .bar-fill {
+    height: 100%;
+    width: 0;
+    transition: width 1s ease-in-out;
+  }
+
+  .skill-bar.proficient .bar-fill {
+    width: 100%;
+    background-color: #4ecdc4;
+  }
+
+  .skill-bar.intermediate .bar-fill {
+    width: 60%;
+    background-color: #ffcc00;
+  }
+
+  .skill-bar.active-learning .bar-fill {
+    width: 40%;
+    background: linear-gradient(45deg, #4ecdc4, #f7b733);
+    animation: pulse 2s infinite;
+  }
+
+  .skill-bar.exploring .bar-fill {
+    width: 20%;
+    background-color: #cccccc;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  /* Override service section text and icons to black */
+  .service h2,
+  .service-pitch,
+  .skill-label {
+    color: #000 !important;
+  }
+
+  .skill-icon {
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+    color: #000;
   }
 
