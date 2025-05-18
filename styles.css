@@ -16,7 +16,7 @@
   }
   
   body {
-    font-family: monospace;
+    font-family: var(--font-type);
     color: var(--text-color);
     min-height: 100vh;
     overflow: hidden;
@@ -582,6 +582,7 @@
 
   /* Flip Card Styles */
   .flip-card {
+    font-family: monospace;
     width: 700px;
     height: 400px;
     perspective: 1000px;
