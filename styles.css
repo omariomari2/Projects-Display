@@ -400,7 +400,7 @@
     .left-content {
       padding: 3rem 1rem;
       margin: 1rem;
-      margin-top: 150px;
+      margin-top: 3rem;
       text-align: center;
       min-height: 80vh;
       display: flex;
@@ -522,11 +522,9 @@
     
     .right-content {
       display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: static;
       width: 100%;
-      z-index: 10;
+      margin-top: 7rem;
     }
     
     .profile-container {
