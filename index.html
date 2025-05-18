@@ -300,17 +300,16 @@
           currentSlide = (currentSlide + direction + slides.length) % slides.length;
           const nextSlide = slides[currentSlide];
 
-          // Remove active class and add transition class
-          currentActiveSlide.classList.remove('active');
+          // Add transition class to animate current slide out
           currentActiveSlide.classList.add(direction > 0 ? 'prev' : 'next');
 
-          // Add active class to next slide
+          // Show next slide
           nextSlide.classList.add('active');
           nextSlide.classList.remove('prev', 'next');
 
-          // Clean up transition classes after animation
+          // Clean up transition and active classes after animation
           setTimeout(() => {
-            currentActiveSlide.classList.remove('prev', 'next');
+            currentActiveSlide.classList.remove('active', 'prev', 'next');
           }, 600);
         };
 
@@ -320,17 +319,16 @@
           currentService = (currentService + direction + services.length) % services.length;
           const nextService = services[currentService];
 
-          // Remove active class and add transition class
-          currentActiveService.classList.remove('active');
+          // Add transition class to animate current service out
           currentActiveService.classList.add(direction > 0 ? 'next' : 'prev');
 
-          // Add active class to next service
+          // Show next service
           nextService.classList.add('active');
           nextService.classList.remove('prev', 'next');
 
-          // Clean up transition classes after animation
+          // Clean up transition and active classes after animation
           setTimeout(() => {
-            currentActiveService.classList.remove('prev', 'next');
+            currentActiveService.classList.remove('active', 'prev', 'next');
           }, 600);
         };
       });
