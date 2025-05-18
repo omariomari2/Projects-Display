@@ -422,6 +422,43 @@
             currentActiveService.classList.remove('active', 'prev', 'next');
           }, 600);
         };
+
+        // Swipe support for slide navigation on mobile
+        const slideContainer = document.querySelector('.slide-container');
+        let touchStartX = null;
+        if (slideContainer) {
+          slideContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+          });
+          slideContainer.addEventListener('touchend', (e) => {
+            if (touchStartX === null) return;
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffX = touchEndX - touchStartX;
+            if (Math.abs(diffX) > 50) {
+              if (diffX > 0) window.changeSlide(-1);
+              else window.changeSlide(1);
+            }
+            touchStartX = null;
+          });
+        }
+        // Swipe support for service navigation on mobile
+        const servicesContainer = document.querySelector('.services-container');
+        let touchStartYService = null;
+        if (servicesContainer) {
+          servicesContainer.addEventListener('touchstart', (e) => {
+            touchStartYService = e.changedTouches[0].clientY;
+          });
+          servicesContainer.addEventListener('touchend', (e) => {
+            if (touchStartYService === null) return;
+            const touchEndY = e.changedTouches[0].clientY;
+            const diffY = touchEndY - touchStartYService;
+            if (Math.abs(diffY) > 50) {
+              if (diffY > 0) window.changeService(-1);
+              else window.changeService(1);
+            }
+            touchStartYService = null;
+          });
+        }
       });
     </script>
   </body>
