@@ -519,6 +519,11 @@
     .flip-card-back .contact-icons a span {
       font-size: 0.8em;
     }
+
+    /* Hide service-pitch paragraphs on mobile screens */
+    .service-pitch {
+      display: none !important;
+    }
   }
   
   @media (max-width: 480px) {
