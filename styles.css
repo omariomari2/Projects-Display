@@ -502,6 +502,23 @@
       background: white;
       color: #1a1a1a;
     }
+
+    /* Hide the right panel of flip-card back */
+    .flip-card-back .back-right {
+      display: none;
+    }
+    /* Shrink QR code image */
+    .flip-card-back .back-left img {
+      width: 100px;
+      height: 100px;
+    }
+    /* Reduce contact icon sizes */
+    .flip-card-back .contact-icons a i {
+      font-size: 1.2em;
+    }
+    .flip-card-back .contact-icons a span {
+      font-size: 0.8em;
+    }
   }
   
   @media (max-width: 480px) {
@@ -640,11 +657,11 @@
       0 8px 16px rgba(0, 0, 0, 0.1);
   }
   .flip-card-back .back-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 10px;
+    justify-items: center;
+    gap: 12px;
   }
   .flip-card-back .back-left img {
     width: 150px;
@@ -746,16 +763,6 @@
     }
     .flip-card-back .back-left .contact-icons {
       grid-template-columns: repeat(3, auto);
-    }
-    .flip-card-back .back-right {
-      display: none;
-    }
-    .flip-card-back .back-left {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
     }
     .flip-card-back .tech-icons {
       display: flex;
@@ -1069,6 +1076,23 @@
 
     .service-tech li {
       font-size: 1em;
+    }
+  }
+
+  /* Hide right side of flip-card back and shrink items on mobile */
+  @media (max-width: 768px) {
+    .flip-card-back .back-right {
+      display: none !important;
+    }
+    .flip-card-back .back-left img {
+      width: 100px !important;
+      height: 100px !important;
+    }
+    .flip-card-back .contact-icons a i {
+      font-size: 1.2em !important;
+    }
+    .flip-card-back .contact-icons a span {
+      font-size: 0.8em !important;
     }
   }
 
