@@ -524,6 +524,27 @@
     .service-pitch {
       display: none !important;
     }
+
+    /* Training slide footer styling */
+    .training-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .training-footer iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 0 !important;
+    }
+    .training-footer .btn {
+      width: 100% !important;
+    }
+
+    /* Hide training slide descriptive content in mobile views */
+    #training-service .service-details > p,
+    #training-service .service-details > br {
+      display: none !important;
+    }
   }
   
   @media (max-width: 480px) {
@@ -1198,5 +1219,31 @@
     font-size: 1.2em;
     vertical-align: middle;
     color: #000;
+  }
+
+  /* Training slide footer styling */
+  .training-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Mobile: stack iframe and button */
+  @media (max-width: 768px) {
+    .training-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .training-footer iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 0 !important;
+    }
+    .training-footer .btn {
+      width: 100% !important;
+    }
   }
 
