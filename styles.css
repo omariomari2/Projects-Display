@@ -657,11 +657,11 @@
       0 8px 16px rgba(0, 0, 0, 0.1);
   }
   .flip-card-back .back-left {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .flip-card-back .back-left img {
     width: 150px;
@@ -1062,6 +1062,15 @@
 
     .slide-nav i, .service-nav i {
       font-size: 1.2em;
+    }
+
+    /* mobile two-column layout for QR and icons */
+    .flip-card-back .back-left {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      gap: 12px;
     }
   }
 
