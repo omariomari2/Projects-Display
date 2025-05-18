@@ -1013,25 +1013,29 @@ button.github:hover {
 .project-header {
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--light);
+  color: var(--text-color);
 }
 
 .project-header h2 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #fff, #bbb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: monospace;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .project-header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   opacity: 0.8;
+  line-height: 1.4;
   max-width: 700px;
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .featured-project {
