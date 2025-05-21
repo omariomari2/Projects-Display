@@ -1483,3 +1483,27 @@ button.github:hover {
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 768px) {
+  .content {
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+  
+  .content:hover {
+    transform: none !important;
+    width: 100% !important;
+  }
+  
+  .content.active {
+    width: 100% !important;
+  }
+  
+  .content .profile_detail {
+    pointer-events: auto !important;
+  }
+  
+  .content .profile_detail a {
+    pointer-events: auto !important;
+  }
+}

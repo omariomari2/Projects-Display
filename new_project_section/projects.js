@@ -34,6 +34,11 @@ function sendEmail(e) {
 const cards = document.querySelectorAll('.container .content');
 cards.forEach(card => {
   card.addEventListener('click', () => {
+    // Check if we're in mobile view
+    if (window.innerWidth <= 768) {
+      return; // Don't do anything in mobile view
+    }
+    
     const isActive = card.classList.contains('active');
     const container = card.closest('.container');
     if (container.classList.contains('two')) {
