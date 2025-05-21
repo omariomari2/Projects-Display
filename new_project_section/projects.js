@@ -77,3 +77,28 @@ window.addEventListener('load', () => {
     placed.push(rect);
   });
 });
+
+// Flip Card Functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const card = document.querySelector('.flip-card');
+  if (card) {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsed = document.getElementById('projectCollapsed');
+  const expanded = document.getElementById('projectExpanded');
+  if (collapsed && expanded) {
+    collapsed.addEventListener('click', function() {
+      collapsed.style.display = 'none';
+      expanded.style.display = 'block';
+    });
+    expanded.addEventListener('click', function() {
+      expanded.style.display = 'none';
+      collapsed.style.display = 'block';
+    });
+  }
+});
