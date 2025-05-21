@@ -34,11 +34,6 @@ function sendEmail(e) {
 const cards = document.querySelectorAll('.container .content');
 cards.forEach(card => {
   card.addEventListener('click', () => {
-    // Check if we're in mobile view
-    if (window.innerWidth <= 768) {
-      return; // Don't do anything in mobile view
-    }
-    
     const isActive = card.classList.contains('active');
     const container = card.closest('.container');
     if (container.classList.contains('two')) {
@@ -48,10 +43,13 @@ cards.forEach(card => {
       card.classList.add('active');
       return;
     }
-    // default behavior: toggle within this container only
-    const siblings = container.querySelectorAll('.content');
-    siblings.forEach(c => c.classList.remove('active'));
-    if (!isActive) card.classList.add('active');
+    
+    // For other containers, toggle active state
+    if (isActive) {
+      card.classList.remove('active');
+    } else {
+      card.classList.add('active');
+    }
   });
 });
 
