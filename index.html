@@ -61,6 +61,13 @@
         });
       });
     </script>
+    <style>
+      @media (max-width: 768px) {
+        .right-content, .slide-toggle-row {
+          display: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="info"></div>
@@ -95,66 +102,57 @@
         </div>  
         <div class="right-content">
           <div class="slide-container">
-            <!-- Slide Navigation -->
-            <button class="slide-nav prev-slide" onclick="changeSlide(-1)">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="slide-nav next-slide" onclick="changeSlide(1)">
-              <i class="fas fa-chevron-right"></i>
-            </button>
+            <!-- Slide Toggle Button -->
+            <div class="slide-toggle-row">
+              <button class="slide-toggle" id="toggle-slide-btn" style="position:fixed; left:24px; bottom:24px; background:#ffffff18; color:black; font-weight:600; font-size:0.95em; padding:0.4em 1em; border-radius:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.08); border:none; z-index:1001;">
+                <span id="toggle-slide-label">Show Services &rarr;</span>
+              </button>
+            </div>
 
             <!-- Slides -->
             <div class="slides">
               <!-- Slide 1: Profile -->
               <div class="slide active" id="profile-slide" style="display:flex; align-items:center; justify-content:center;">
-                <img src="images/profile.jpeg" alt="Profile Picture" style="max-width:90%; max-height:100%; object-fit:contain; border-radius: 5px;">
+                <img src="images/profile.jpeg" alt="Profile Picture" style="max-width:90%; max-height:100%; object-fit:contain; border-radius: 5px; cursor: pointer;">
               </div>
               <!-- Slide 2: Services -->
               <div class="slide" id="services-slide">
                 <div class="services-container">
-                  <!-- Services Navigation -->
-                  <button class="service-nav prev-service" onclick="changeService(-1)">
-                    <i class="fas fa-chevron-up"></i>
-                  </button>
-                  <button class="service-nav next-service" onclick="changeService(1)">
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-
                   <!-- Services Content -->
                   <div class="services-content">
+                    <!-- Title Slide -->
+                    <div class="service active" id="services-title">
+                      <div style="margin-top: 2em; text-align: center;">
+                        <i class="fab fa-java" style="font-size: 3em; color: orange; margin: 0.5em; transform: rotate(-12deg);"></i>
+                        <i class="fab fa-js" style="font-size: 5em; color: yellow; margin: 0.5em; transform: rotate(10deg);"></i>
+                        <i class="fab fa-aws" style="font-size: 5em; margin: 0.5em; color: rgb(36, 79, 208); transform: rotate(-10deg);"></i>
+                      </div>
+                      <h1 style="font-weight:bold; text-align:center; margin-top: 0; font-size:4em; color: white; text-decoration: underline;">Services/Skillset</h1>
+                      <p style="text-align:center; margin-top:2em; font-size:1.2em; color: black;">
+                        I believe technology should be smart, secure and accessible. Therefore, I provide services that reflect that belief—from backend development to penetration testing and cloud deployments.
+                      </p>
+                      <div style="margin-top: 2em; text-align: center;">
+                        <i class="fab fa-python" style="font-size: 5em; margin: 0.5em; color: rgb(6, 88, 124); transform: rotate(15deg);"></i>
+                        <i class="fab fa-linux" style="font-size: 3em; margin: 0.5em; color: black; transform: rotate(-5deg);"></i>
+                        <i class="fab fa-react" style="font-size: 3.2em; margin: 0.5em; transform: rotate(8deg);"></i>
+                        <i class="fab fa-cuttlefish fa-lg" style="font-size: 3em; color: black; margin: 0.5em; transform: rotate(-8deg);"></i>
+                      </div>
+                      <div class="service-indicator" data-next="cloud-service">Cloud & DevOps Tools &rarr;</div>
+                    </div>
                     <!-- Cloud & DevOps Tools -->
-                    <div class="service active" id="cloud-service">
+                    <div class="service" id="cloud-service">
                       <h2>Cloud & DevOps Tools</h2>
                       <div class="service-details">
                         <p class="service-pitch">I'm actively building cloud-native projects using tools like <i><u>AWS</u></i>, <i><u>GitHub</u></i>, and <i><u>Linux</u></i>. With several AWS badges and certificates on AWS Educate, and hands-on deployments using <i><u>Render</u></i>, I'm growing my DevOps skills while learning to manage scalable and secure infrastructures. I'm also exploring <i><u>Microsoft Azure</u></i> to broaden my cloud perspective.</p>
-                        <div class="service-bars">
-                          <div class="skill-bar-container">
-                            <i class="fab fa-aws skill-icon"></i>
-                            <span class="skill-label">AWS (Actively Learning) ⭐</span>
-                            <div class="skill-bar active-learning"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-linux skill-icon"></i>
-                            <span class="skill-label">Linux</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-github skill-icon"></i>
-                            <span class="skill-label">GitHub</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-cloud skill-icon"></i>
-                            <span class="skill-label">Render</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-microsoft skill-icon"></i>
-                            <span class="skill-label">Microsoft Azure</span>
-                            <div class="skill-bar exploring"><div class="bar-fill"></div></div>
-                          </div>
+                        <div class="service-skills">
+                          <div class="skill-tag"><i class="fab fa-aws skill-icon"></i> AWS <span class="level focus">Focus ⭐</span></div>
+                          <div class="skill-tag"><i class="fab fa-linux skill-icon"></i> Linux <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fab fa-github skill-icon"></i> GitHub <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fas fa-cloud skill-icon"></i> Render <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fab fa-microsoft skill-icon"></i> Microsoft Azure <span class="level intermediate">Intermediate</span></div>
                         </div>
                       </div>
+                      <div class="service-indicator indicator-animate" data-next="backend-service">Backend Development &rarr;</div>
                     </div>
 
                     <!-- Backend Development -->
@@ -162,44 +160,17 @@
                       <h2>Backend Development</h2>
                       <div class="service-details">
                         <p class="service-pitch">I enjoy building the logic behind applications—from <i><u>Python</u></i> and <i><u>Django</u></i> APIs to experimenting with <i><u>Java</u></i> and <i><u>Spring Boot</u></i> for enterprise-style systems. I've also explored <i><u>GoLang</u></i> and <i><u>Firebase</u></i> in my projects, always aiming to write clean and well-documented backend code. My focus is learning by doing—one build at a time.</p>
-                        <div class="service-bars">
-                          <div class="skill-bar-container">
-                            <i class="fab fa-python skill-icon"></i>
-                            <span class="skill-label">Python</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-database skill-icon"></i>
-                            <span class="skill-label">Django</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-node-js skill-icon"></i>
-                            <span class="skill-label">Node.js</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-java skill-icon"></i>
-                            <span class="skill-label">Java</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-fire skill-icon"></i>
-                            <span class="skill-label">Firebase</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-golang skill-icon"></i>
-                            <span class="skill-label">GoLang</span>
-                            <div class="skill-bar active-learning"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <span class="cplus-icons"><i class="fab fa-cuttlefish"></i><i class="fas fa-plus"></i><i class="fas fa-plus"></i></span>
-                            <span class="skill-label">C++</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
+                        <div class="service-skills">
+                          <div class="skill-tag"><i class="fab fa-python skill-icon"></i> Python <span class="level focus">Focus ⭐</span></div>
+                          <div class="skill-tag"><i class="fas fa-database skill-icon"></i> Django <span class="level intermediate">Intermediate</span></div>
+                          <div class="skill-tag"><i class="fab fa-node-js skill-icon"></i> Node.js <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fab fa-java skill-icon"></i> Java <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fas fa-fire skill-icon"></i> Firebase <span class="level intermediate">Intermediate</span></div>
+                          <div class="skill-tag"><i class="fab fa-golang skill-icon"></i> GoLang <span class="level intermediate">Intermediate</span></div>
+                          <div class="skill-tag"><span class="cplus-icons"><i class="fab fa-cuttlefish"></i><i class="fas fa-plus"></i><i class="fas fa-plus"></i></span> C++ <span class="level intermediate">Intermediate</span></div>
                         </div>
                       </div>
+                      <div class="service-indicator indicator-animate" data-next="frontend-service">Frontend & Interface &rarr;</div>
                     </div>
 
                     <!-- Frontend & Interface Development -->
@@ -207,29 +178,14 @@
                       <h2>Frontend & Interface Development</h2>
                       <div class="service-details">
                         <p class="service-pitch">Designing clean, responsive interfaces is something I'm passionate about. I use <i><u>React</u></i> and <i><u>Tailwind CSS</u></i> to build frontends that work across devices. I'm also exploring <i><u>Three.js</u></i> to create interactive 3D elements and learn more about visual web experiences. My goal is to make UI both functional and enjoyable.</p>
-                        <div class="service-bars">
-                          <div class="skill-bar-container">
-                            <i class="fab fa-react skill-icon"></i>
-                            <span class="skill-label">React</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-css3-alt skill-icon"></i>
-                            <span class="skill-label">Tailwind CSS</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fab fa-js skill-icon"></i>
-                            <span class="skill-label">JavaScript</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-cube skill-icon"></i>
-                            <span class="skill-label">Three.js</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
+                        <div class="service-skills">
+                          <div class="skill-tag"><i class="fab fa-react skill-icon"></i> React <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fas fa-css3-alt skill-icon"></i> Tailwind CSS <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fab fa-js skill-icon"></i> JavaScript <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fas fa-cube skill-icon"></i> Three.js <span class="level proficient">Proficient</span></div>
                         </div>
                       </div>
+                      <div class="service-indicator indicator-animate" data-next="database-service">Databases & Data Tools &rarr;</div>
                     </div>
 
                     <!-- Databases & Data Tools -->
@@ -237,58 +193,33 @@
                       <h2>Databases & Data Tools</h2>
                       <div class="service-details">
                         <p class="service-pitch">I work with relational databases like <i><u></u>MySQL</u></i> and <i><u>PostgreSQL</u></i> to structure, query, and manage data in my apps. I've also used <i><u>Firebase</u></i> for real-time backend needs. I'm learning how to design secure and efficient data models for real-world use.</p>
-                        <div class="service-bars">
-                          <div class="skill-bar-container">
-                            <i class="fas fa-database skill-icon"></i>
-                            <span class="skill-label">MySQL</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-database skill-icon"></i>
-                            <span class="skill-label">PostgreSQL</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <i class="fas fa-fire skill-icon"></i>
-                            <span class="skill-label">Firebase</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
+                        <div class="service-skills">
+                          <div class="skill-tag"><i class="fas fa-database skill-icon"></i> MySQL <span class="level proficient">Proficient</span></div>
+                          <div class="skill-tag"><i class="fas fa-database skill-icon"></i> PostgreSQL <span class="level intermediate">Intermediate</span></div>
+                          <div class="skill-tag"><i class="fas fa-fire skill-icon"></i> Firebase <span class="level intermediate">Intermediate</span></div>
                         </div>
                       </div>
+                      <div class="service-indicator indicator-animate" data-next="training-service">CyberSecurity &rarr;</div>
                     </div>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Slide 3: CyberSecurity Training -->
-              <div class="slide" id="training-slide">
-                <div class="services-container">
-                  <div class="services-content">
-                    <div class="service active" id="training-service">
+                    <!-- CyberSecurity & Ethical Hacking Service -->
+                    <div class="service" id="training-service">
                       <h2>CyberSecurity & Ethical Hacking</h2>
                       <div class="service-details" style="width:100%; max-width:600px;">
                         <p style="color: #000;">
                           As a cybersecurity student, I'm actively learning through hands-on platforms like <i><u>Hack The Box</u></i> and <i><u>TryHackMe</u></i>, where I explore how systems are exploited and how to defend them. My studies include networking fundamentals via <i><u>Cisco Academy</u></i> and cloud security principles through <i><u>AWS Educate</u></i>, focusing on both the technical and strategic sides of cybersecurity. With over 6 certificates and 20+ badges earned across various platforms, I bring a growing, well-rounded foundation in securing digital systems and protecting online integrity.
-                        </p> <br>
-                        <div class="service-bars">
-                          <div class="skill-bar-container">
-                            <span class="skill-label">Vulnerability Assessment (Proficient)</span>
-                            <div class="skill-bar proficient"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <span class="skill-label">Pen Testing (Actively Learning)</span>
-                            <div class="skill-bar active-learning"><div class="bar-fill"></div></div>
-                          </div>
-                          <div class="skill-bar-container">
-                            <span class="skill-label">Networking (Intermediate)</span>
-                            <div class="skill-bar intermediate"><div class="bar-fill"></div></div>
-                          </div>
+                        </p>
+                        <div class="service-skills">
+                          <div class="skill-tag">Vulnerability Assessment <span class="level intermediate">Intermediate</span></div>
+                          <div class="skill-tag">Pen Testing <span class="level focus">Focus ⭐</span></div>
+                          <div class="skill-tag">Networking <span class="level intermediate">Intermediate</span></div>
                         </div>
                         <div class="training-footer" style="display: flex; align-items: center; justify-content: space-between; width:100%; margin-top: 20px;">
                           <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4729036" style="border:none; width:400px; height:auto; overflow:hidden; margin-top: 48px;"></iframe>
                           <a href="https://www.credly.com/users/bright-owusu.2ff4b4b3" class="btn" target="_blank">Credly</a>
                         </div>
                       </div>
+                      <div class="service-indicator indicator-animate" data-next="services-title">Back to Top &uarr;</div>
                     </div>
                   </div>
                 </div>
@@ -313,6 +244,40 @@
         const slides = document.querySelectorAll('.slide');
         const services = document.querySelectorAll('.service');
 
+        // Slide toggle button logic
+        const toggleBtn = document.getElementById('toggle-slide-btn');
+        const toggleLabel = document.getElementById('toggle-slide-label');
+        function showSlide(slideId) {
+          slides.forEach(s => {
+            if (s.id === slideId) {
+              s.classList.add('active');
+              s.style.zIndex = 2;
+            } else {
+              s.classList.remove('active');
+              s.style.zIndex = 1;
+            }
+          });
+        }
+        function updateToggleLabel() {
+          const profileActive = document.getElementById('profile-slide').classList.contains('active');
+          if (profileActive) {
+            toggleLabel.innerHTML = 'Show Services &rarr;';
+          } else {
+            toggleLabel.innerHTML = '&larr; Show Profile';
+          }
+        }
+        toggleBtn.addEventListener('click', function() {
+          const profileActive = document.getElementById('profile-slide').classList.contains('active');
+          if (profileActive) {
+            showSlide('services-slide');
+          } else {
+            showSlide('profile-slide');
+          }
+          updateToggleLabel();
+        });
+        // On load, set correct label
+        updateToggleLabel();
+
         // Slide navigation
         window.changeSlide = function(direction) {
           const currentActiveSlide = slides[currentSlide];
@@ -332,24 +297,36 @@
           }, 600);
         };
 
-        // Service navigation
-        window.changeService = function(direction) {
-          const currentActiveService = services[currentService];
-          currentService = (currentService + direction + services.length) % services.length;
-          const nextService = services[currentService];
-
-          // Add transition class to animate current service out
-          currentActiveService.classList.add(direction > 0 ? 'next' : 'prev');
-
-          // Show next service
-          nextService.classList.add('active');
-          nextService.classList.remove('prev', 'next');
-
-          // Clean up transition and active classes after animation
-          setTimeout(() => {
-            currentActiveService.classList.remove('active', 'prev', 'next');
-          }, 600);
-        };
+        // Service indicator logic
+        const serviceEls = document.querySelectorAll('.service');
+        serviceEls.forEach(service => {
+          const indicator = service.querySelector('.service-indicator');
+          if (indicator) {
+            // Always show indicator if not scrollable (content fits)
+            if (service.scrollHeight <= service.clientHeight + 2) {
+              indicator.classList.add('visible');
+            } else {
+              service.addEventListener('scroll', function() {
+                // Show indicator only if scrolled to bottom
+                if (service.scrollTop + service.clientHeight >= service.scrollHeight - 10) {
+                  indicator.classList.add('visible');
+                } else {
+                  indicator.classList.remove('visible');
+                }
+              });
+            }
+            indicator.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const nextId = indicator.getAttribute('data-next');
+              const nextService = document.getElementById(nextId);
+              if (nextService) {
+                serviceEls.forEach(s => s.classList.remove('active'));
+                nextService.classList.add('active');
+                nextService.scrollTop = 0;
+              }
+            });
+          }
+        });
       });
     </script>
   </body>
