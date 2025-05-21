@@ -1006,6 +1006,7 @@ button.github:hover {
   padding: 2rem 2rem;
   background: #fff;
   margin-bottom: 1rem;
+  padding-top: 0;
 }
 
 .project-header {
@@ -1190,6 +1191,38 @@ button.github:hover {
   height: 600px;
   background-color: var(--bg-color);
   margin-bottom: 1rem;
+  padding-top: 0;
+}
+
+.flip-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flip-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  text-align:start;
+  margin: 0;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .flip-card-title {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card-title {
+    font-size: 1.5rem;
+  }
 }
 
 .flip-section .flip-card {
@@ -1419,5 +1452,34 @@ button.github:hover {
   .flip-project-info {
     height: 450px;
     margin: 0;
+  }
+}
+
+.flip-card-contact-btn {
+  margin-top: 1rem;
+  padding: 8px 15px;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  font-family: monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.flip-card-contact-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .flip-card-contact-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }
